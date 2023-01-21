@@ -26,7 +26,6 @@ def additemconfirmation(request):
     newitem.save()
 
     context = {
-
         'item_id': newitem_id,
         'item_name': newitem_name,
         'item_description': newitem_description,
