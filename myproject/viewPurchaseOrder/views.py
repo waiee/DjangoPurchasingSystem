@@ -22,22 +22,6 @@ def viewPo(request):
         }
     )
 
-def searchPo(request):
-    if request.method == "POST":
-        searched = request.POST['searched']
-        purchaseOrderID = PurchaseOrder.objects.filter(purchaseOrderID__contains=searched)
-        return render(
-            request,
-            'viewPurchaseOrder/searchPo.html',
-            {
-                'searched': searched,
-                'purchaseOrderID' : purchaseOrderID,
-            }
-        )
-    else:
-        return render(request, 
-        'viewPurchaseOrder/searchPo.html',{})
-
 def selectPo(request, purchaseOrderID):
     if request.method == "POST":
         selected = request.POST['selected']
@@ -54,6 +38,22 @@ def selectPo(request, purchaseOrderID):
     else:
         return render(request, 
         'viewPurchaseOrder/selectPo.html',{})
+
+def searchPo(request):
+    if request.method == "POST":
+        searched = request.POST['searched']
+        purchaseOrderID = PurchaseOrder.objects.filter(purchaseOrderID__contains=searched)
+        return render(
+            request,
+            'viewPurchaseOrder/searchPo.html',
+            {
+                'searched': searched,
+                'purchaseOrderID' : purchaseOrderID,
+            }
+        )
+    else:
+        return render(request, 
+        'viewPurchaseOrder/searchPo.html',{})
 
 def backtoHome(request):
     """Renders the home page."""
