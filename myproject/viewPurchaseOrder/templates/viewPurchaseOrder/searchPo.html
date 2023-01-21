@@ -64,16 +64,16 @@
 <div>
     <h2 style="text-align: center;" ><strong> Purchase Order Details </strong></h2>
     <br/>
-  <form class="margintop" action = 'searchItem' method='POST'>
+  <form class="margintop" action = 'searchPo' method='POST'>
     {% csrf_token %} 
     <input type="text" placeholder="Search here..." aria-label="Search here.." name = "searched")>
     <button class="btn btn-info">Search</button>
     </form>
 
 <table>
-{% if selected %}
+{% if searched %}
     {% if po_id %}
-        <!-- <em>You searched for {{selected}}</em> -->
+        <em>You searched for {{selected}}</em>
         <br/>
         <thead>
             <th>No.</th>
