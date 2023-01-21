@@ -24,7 +24,7 @@ def searchPo(request):
         return render(request, 
         'viewPurchaseOrder/searchPo.html',{})
 
-def selectPo(request):
+def selectPo(request, purchaseOrderID):
     if request.method == "POST":
         selected = request.POST['selected']
         purchaseOrderID = PurchaseOrder.objects.all()
@@ -44,6 +44,7 @@ def selectPo(request):
 
 def viewPo(request):
     po_list = PurchaseOrder.objects.all()
+
     return render(
         request,
         'viewPurchaseOrder/viewPo.html',

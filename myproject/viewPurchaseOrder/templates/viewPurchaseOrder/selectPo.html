@@ -34,14 +34,13 @@
 
 </style>
 <div>
-    <h2 style="text-align: center;" ><strong> Purchase Order Details {{selected}} </strong></h2>
+    <h2 style="text-align: center;" ><strong> Purchase Order #{{selected}} </strong></h2>
     <br/>
   <!-- <form class="margintop" action = 'searchPo' method='POST'>
     {% csrf_token %} 
     <input type="text" placeholder="Search here..." aria-label="Search here.." name = "searched")>
     <button class="btn btn-info">Search</button>
     </form> -->
-
 <table>
 {% if selected %}
     {% if purchaseOrderID %}

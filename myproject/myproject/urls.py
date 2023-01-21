@@ -40,10 +40,16 @@ urlpatterns = [
 
     re_path(r'^additemform$', additem_views.additemform, name='additem_form'),
     re_path(r'^additemconfirmation$', additem_views.additemconfirmation, name='additem_confirmation'),
-    
-    re_path(r'^searchPo$', viewPo_views.searchPo, name='searchPo'),
-    re_path(r'^viewPo$', viewPo_views.viewPo, name='viewPo'),
-    re_path(r'^backtoHome$', viewPo_views.backtoHome, name='backtoHome'),
-    re_path(r'^selectPo$', viewPo_views.selectPo, name='selectPo'),
 
+    re_path(r'^searchPo$', viewPo_views.searchPo, name='searchPo'),
+    path('viewPo/', viewPo_views.viewPo, name='viewPo'),
+    path('viewPo/selectPo', viewPo_views.selectPo, name='selectPo'),
+    path('viewPo/selectPo/<str:purchaseOrderID>/', viewPo_views.selectPo, name='selectPo'),
+    re_path(r'^backtoHome$', viewPo_views.backtoHome, name='backtoHome'),
+
+    # re_path(r'^selectPo$', viewPo_views.selectPo, name='selectPo'),
 ]
+
+#     path('view_one_PO/', view_items.view_one_PO, name='view_one_PO'),
+#     path('view_one_PO/<str:po_id>', view_items.view_one_PO, name='view_one_PO'),
+# ]

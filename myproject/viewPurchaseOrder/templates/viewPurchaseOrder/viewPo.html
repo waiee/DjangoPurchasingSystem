@@ -94,7 +94,7 @@ tr > td:first-child {
         <td>
             <form class="margintop" action='selectPo' method='POST'>
                 {% csrf_token %} 
-                <button type="submit" value="po.purchaseOrderID" name="selected" class="btn btn-info">Select</button><br />
+                <button type="submit" href="{% url 'selectPo' po.purchaseOrderID %}" name="selected" class="btn btn-info">Select</button><br />
             </form>
         </td>
     </tr>
