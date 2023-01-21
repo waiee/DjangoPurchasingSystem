@@ -11,13 +11,13 @@ from django.http import HttpRequest
 def searchPo(request):
     if request.method == "POST":
         searched = request.POST['searched']
-        po_id = PurchaseOrder.objects.filter(po_id__contains=searched)
+        purchaseOrderID = PurchaseOrder.objects.filter(purchaseOrderID__contains=searched)
         return render(
             request,
             'viewPurchaseOrder/viewPo.html',
             {
                 'searched': searched,
-                'po_id' : po_id,
+                'purchaserOrderID' : purchaseOrderID,
             }
         )
     else:
