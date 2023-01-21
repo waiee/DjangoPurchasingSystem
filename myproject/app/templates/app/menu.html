@@ -1,0 +1,71 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+<style>
+    .button{
+            padding : 15px 25px;
+            margin : 5px 2px;
+            display: inline-block;
+            width: 250px;
+            border: none;
+            border-radius: 12px;
+            background-color:#00ADB5;
+            color: white;
+            
+    
+    }
+    
+    button:hover{
+        background-color: #367e81;
+    }
+</style>
+
+<div>
+    <br />
+    {% if is_employee %}
+         <h2>Employee Menu</h2>
+    {% elif is_manager %}
+         <h2>Manager Menu</h2>
+    {% endif %}
+
+    <br />
+    <table>
+    {% if is_employee %}
+        <tr><td>
+    <form class="margintop" action='additemform' method='GET'>
+        <button type="submit" class="btn btn-info">Add Item</button><br />
+    </form>
+            </td></tr>
+            
+        <tr><td>
+    <form class="margintop" action='module2' method='GET'>
+        <button type="submit" class="btn btn-outline-info waves-effect">Module 2</button><br />
+    </form>
+        </td></tr>
+
+    {% elif is_manager %}            
+        <tr><td>
+    <form class="margintop" action='viewPo' method='GET'>
+        <button type="submit" class="button">View Purchase Order</button><br />
+    </form>
+        </td></tr>
+            
+        <tr><td>
+    <form class="margintop" action='module4' method='GET'>
+        <button type="submit" class="button">Approve/Reject Purchase Order</button><br />
+    </form>
+        </td></tr>
+                      
+    {% else %}            
+
+        <tr><td>
+            <p>Undefined User.</p>
+        </td></tr>
+            
+    {% endif %}            
+    </table>
+</div>
+
+{% endblock %}
+ 
