@@ -91,7 +91,7 @@
                     <td>
                         <form class="margintop" action='selectPo' method='POST'>
                         {% csrf_token %} 
-                        <button type="submit" value="po.po_id" name="selected" class="btn btn-info">Select</button><br />
+                        <button type="submit" value="po.purchaseOrderID" name="selected" class="btn btn-info">Select</button><br />
                     </form>
                     </td>
                 </tr>
@@ -103,8 +103,11 @@
     <p style="color:red"><em>Please enter an ID to search</em></p>
     <br/>
 {% endif %}
-
-
 </div>
 </table>
+
+<br>
+<form class="margintop" action='backtoHome' method='GET'>
+  <button type="submit" class="btn btn-info">Back</button><br />
+</form>
 {% endblock %}

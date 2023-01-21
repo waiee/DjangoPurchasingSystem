@@ -85,12 +85,12 @@ tr > td:first-child {
 </thead>
 
 {% for po in po_list %}
-    {% if po.po_status == 'Pending' %}
+    {% if po.totalPrice >= 1 %}
     <tr>
         <td>{{po}}</td>
-        <td>{{po.po_id}}</td>
-        <td>{{po.staff_id}}</td>
-        <td>{{po.po_status}}</td>
+        <td>{{po.purchaseOrderID}}</td>
+        <td>{{po.staffID}}</td>
+        <td>{{po.poStatus}}</td>
         <td>
             <form class="margintop" action='selectPo' method='POST'>
                 {% csrf_token %} 

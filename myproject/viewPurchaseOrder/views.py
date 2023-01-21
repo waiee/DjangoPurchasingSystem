@@ -26,14 +26,14 @@ def searchPo(request):
 
 def selectPo(request):
     if request.method == "POST":
-        searched = request.POST['selected']
+        selected = request.POST['selected']
         purchaseOrderID = PurchaseOrder.objects.all()
 
         return render(
             request,
             'viewPurchaseOrder/searchPo.html',
             {
-                'searched': searched,
+                'selected': selected,
                 'purchaseOrderID' : purchaseOrderID,
             }
         )
