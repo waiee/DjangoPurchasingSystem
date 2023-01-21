@@ -21,6 +21,7 @@ from django.contrib.auth.views import LoginView, LogoutView
 from datetime import datetime
 
 from additem import views as additem_views
+from viewPurchaseOrder import views as viewPo_views
 
 admin.autodiscover()
 
@@ -39,9 +40,9 @@ urlpatterns = [
 
     re_path(r'^additemform$', additem_views.additemform, name='additem_form'),
     re_path(r'^additemconfirmation$', additem_views.additemconfirmation, name='additem_confirmation'),
-    re_path(r'^searchPo$', viewitem_views.searchItem, name='searchItem'),
-    re_path(r'^viewItem$', viewitem_views.viewItem, name='viewItem'),
-    re_path(r'^backtoHome$', viewitem_views.backtoHome, name='backtoHome'),
-    re_path(r'^selectItem$', viewitem_views.selectItem, name='selectItem'),
+    re_path(r'^searchPo$', viewPo_views.searchPo, name='searchPo'),
+    re_path(r'^viewItem$', viewPo_views.viewPo, name='viewPo'),
+    re_path(r'^backtoHome$', viewPo_views.backtoHome, name='backtoHome'),
+    re_path(r'^selectItem$', viewPo_views.selectPo, name='selectPo'),
 
 ]
