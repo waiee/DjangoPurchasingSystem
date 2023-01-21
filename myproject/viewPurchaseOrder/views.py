@@ -27,7 +27,7 @@ def searchPo(request):
 def selectPo(request, purchaseOrderID):
     if request.method == "POST":
         selected = request.POST['selected']
-        purchaseOrderID = PurchaseOrder.objects.all()
+        purchaseOrderID = PurchaseOrder.objects.get(purchaseOrderID = purchaseOrderID)
 
         return render(
             request,
