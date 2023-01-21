@@ -31,7 +31,7 @@ def selectPo(request):
 
         return render(
             request,
-            'viewPurchaseOrder/searchPo.html',
+            'viewPurchaseOrder/selectPo.html',
             {
                 'selected': selected,
                 'purchaseOrderID' : purchaseOrderID,
@@ -39,7 +39,7 @@ def selectPo(request):
         )
     else:
         return render(request, 
-        'viewPurchaseOrder/searchPo.html',{})
+        'viewPurchaseOrder/selectPo.html',{})
 
 
 def viewPo(request):
