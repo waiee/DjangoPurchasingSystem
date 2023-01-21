@@ -89,9 +89,9 @@
                     <td>{{po.staffID}}</td>
                     <td>{{po.poStatus}}</td>
                     <td>
-                        <form class="margintop" action='selectPo' method='POST'>
+                        <form class="margintop" action='selectItem' method='POST'>
                         {% csrf_token %} 
-                        <button type="submit" value="po.purchaseOrderID" name="selected" class="btn btn-info">Select</button><br />
+                        <button type="submit" value="po.po_id" name="selected" class="btn btn-info">Select</button><br />
                     </form>
                     </td>
                 </tr>
