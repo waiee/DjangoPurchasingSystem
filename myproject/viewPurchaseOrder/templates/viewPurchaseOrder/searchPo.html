@@ -1,0 +1,110 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+<style>
+    table, th,td {
+       border:none;
+       border-collapse: collapse;
+       border-left: 1px solid white;
+       border-right: 1px solid white;
+       text-align: center;
+       padding:10px;
+   } 
+   
+   th {
+       background-color: #00ADB5;
+       color: white;
+       padding:15px;
+   
+   
+   }
+   tr{
+       border:1px solid;
+       border-color: white;
+       background-color: #393E46;
+       color: white;
+   }
+   tr > td {
+       min-width: 240px;
+       /* border: 1px solid black; */
+   }
+   tr > td:first-child {
+       min-width: 240px;
+   }
+   
+   .search{
+       float:right;
+   }
+   
+   .input[type=text]{
+       float: right;
+       padding: 6px;
+       margin-top: 8px;
+       margin-right: 16px;
+       border: 1px solid;
+       font-size:17px;
+   
+    }
+    search button{
+       float: right;
+       padding: 6px 10px;
+       margin-top: 8px;
+       margin-right: 16px;
+       background: #ddd;
+       font-size: 17px;
+       border: none;
+       cursor: pointer;
+    }
+   
+    .search button:hover{
+       background: #ccc;
+    }
+
+</style>
+<div>
+    <h2 style="text-align: center;" ><strong> Purchase Order Details </strong></h2>
+    <br/>
+  <form class="margintop" action = 'searchItem' method='POST'>
+    {% csrf_token %} 
+    <input type="text" placeholder="Search here..." aria-label="Search here.." name = "searched")>
+    <button class="btn btn-info">Search</button>
+    </form>
+
+<table>
+{% if selected %}
+    {% if po_id %}
+        <!-- <em>You searched for {{selected}}</em> -->
+        <br/>
+        <thead>
+            <th>No.</th>
+            <th>Purchase Order ID</th>
+            <th>Staff ID</th>
+            <th>Status</th>
+            <th>Selection</th>
+        </thead>
+            {% for po in po_id %}
+                <tr>
+                    <td>{{po}}</td>
+                    <td>{{po.po_id}}</td>
+                    <td>{{po.staff_id}}</td>
+                    <td>{{po.po_status}}</td>
+                    <td>
+                        <form class="margintop" action='selectItem' method='POST'>
+                        {% csrf_token %} 
+                        <button type="submit" value="po.po_id" name="selected" class="btn btn-info">Select</button><br />
+                    </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <p style="color:red"><em>ID "{{searched}}"" not found, Please try again</em></p>
+        {% endif %}
+{% else %}
+    <p style="color:red"><em>Please enter an ID to search</em></p>
+    <br/>
+{% endif %}
+
+
+</div>
+</table>
+{% endblock %}
