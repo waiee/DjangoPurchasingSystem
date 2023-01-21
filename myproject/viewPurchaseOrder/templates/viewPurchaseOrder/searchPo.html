@@ -73,7 +73,7 @@
 <table>
 {% if searched %}
     {% if purchaseOrderID %}
-        <em>You searched for {{selected}}</em>
+        <em>You searched for {{searched}}</em>
         <br/>
         <thead>
             <th>No.</th>
@@ -82,14 +82,14 @@
             <th>Status</th>
             <th>Selection</th>
         </thead>
-            {% for po in po_id %}
+            {% for po in purchaseOrderID %}
                 <tr>
                     <td>{{po}}</td>
-                    <td>{{po.po_id}}</td>
-                    <td>{{po.staff_id}}</td>
-                    <td>{{po.po_status}}</td>
+                    <td>{{po.purchaseOrderID}}</td>
+                    <td>{{po.staffID}}</td>
+                    <td>{{po.poStatus}}</td>
                     <td>
-                        <form class="margintop" action='selectItem' method='POST'>
+                        <form class="margintop" action='selectPo' method='POST'>
                         {% csrf_token %} 
                         <button type="submit" value="po.po_id" name="selected" class="btn btn-info">Select</button><br />
                     </form>

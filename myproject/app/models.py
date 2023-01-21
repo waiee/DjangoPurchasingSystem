@@ -23,7 +23,7 @@ class Staff(models.Model):
     password = models.CharField(max_length=5, null=True)
 
     def __str__(self):
-        return str(self.staff_id)
+        return str(self.staffID)
 
 class Vendor(models.Model):
     vendorID = models.CharField(primary_key=True, max_length=10)
@@ -32,7 +32,7 @@ class Vendor(models.Model):
     vendorContact = models.BigIntegerField(null=True)
 
     def __str__(self):
-        return str(self.vendor_id)
+        return str(self.vendorID)
 
 class QuotationItem(models.Model):
     itemID = models.CharField(primary_key=True, max_length=10)
@@ -42,7 +42,7 @@ class QuotationItem(models.Model):
     itemPriceperUnit = models.DecimalField(default=None, null=True, max_digits=8, decimal_places=2)
     
     def __str__(self):
-        return str(self.item_id)
+        return str(self.itemID)
 
 class PurchaseOrderProduct(models.Model):
     productID = models.CharField(primary_key=True, max_length=10)
@@ -52,7 +52,7 @@ class PurchaseOrderProduct(models.Model):
     productPriceperUnit = models.DecimalField(default=None, null=True, max_digits=8, decimal_places=2)
 
     def __str__(self):
-        return str(self.product_id)
+        return str(self.productID)
 
 class Quotation(models.Model):
     quotationID = models.CharField(primary_key=True, max_length=10)
@@ -65,7 +65,7 @@ class Quotation(models.Model):
     quotationStatus = models.CharField(max_length=20)
 
     def __str__(self):
-        return str(self.quotation_id)
+        return str(self.quotationID)
 
 class PurchaseOrder(models.Model):
     purchaseOrderID = models.CharField(primary_key=True, max_length=10)
@@ -79,4 +79,4 @@ class PurchaseOrder(models.Model):
     poStatus = models.CharField(max_length=20)
 
     def __str__(self):
-        return str(self.po_id)
+        return str(self.purchaseOrderID)

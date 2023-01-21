@@ -14,32 +14,32 @@ def searchPo(request):
         purchaseOrderID = PurchaseOrder.objects.filter(purchaseOrderID__contains=searched)
         return render(
             request,
-            'viewPurchaseOrder/viewPo.html',
+            'viewPurchaseOrder/searchPo.html',
             {
                 'searched': searched,
-                'purchaserOrderID' : purchaseOrderID,
+                'purchaseOrderID' : purchaseOrderID,
             }
         )
     else:
         return render(request, 
-        'viewitem/searchItem.html',{})
+        'viewPurchaseOrder/searchPo.html',{})
 
 def selectPo(request):
     if request.method == "POST":
         searched = request.POST['selected']
-        po_id = PurchaseOrder.objects.all()
+        purchaseOrderID = PurchaseOrder.objects.all()
 
         return render(
             request,
             'viewPurchaseOrder/searchPo.html',
             {
                 'searched': searched,
-                'po_id' : po_id,
+                'purchaseOrderID' : purchaseOrderID,
             }
         )
     else:
         return render(request, 
-        'viewitem/searchItem.html',{})
+        'viewPurchaseOrder/searchPo.html',{})
 
 
 def viewPo(request):
