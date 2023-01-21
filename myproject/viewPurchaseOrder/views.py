@@ -14,7 +14,7 @@ def searchPo(request):
         po_id = PurchaseOrder.objects.filter(po_id__contains=searched)
         return render(
             request,
-            'viewitem/searchItem.html',
+            'viewPurchaseOrder/viewPo.html',
             {
                 'searched': searched,
                 'po_id' : po_id,
@@ -31,7 +31,7 @@ def selectPo(request):
 
         return render(
             request,
-            'viewitem/searchItem.html',
+            'viewPurchaseOrder/searchPo.html',
             {
                 'selected': selected,
                 'po_id' : po_id,
@@ -46,7 +46,7 @@ def viewPo(request):
     po_list = PurchaseOrder.objects.all()
     return render(
         request,
-        'viewitem/viewItem.html',
+        'viewPurchaseOrder/viewPo.html',
         {
             'title':'View Purchase Order',
             'year':datetime.now().year,
@@ -62,7 +62,7 @@ def backtoHome(request):
     else:
         return render(
             request,
-            'additem/menu.html',
+            'app/menu.html',
             {
                 'title':'View Item',
                 'year': datetime.now().year,
