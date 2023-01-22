@@ -10,9 +10,9 @@ from django.http import HttpRequest
 
 @login_required
 def viewPo(request):
-    fo_id = Staff.objects.get(user = request.user).staffID
+    # fo_id = Staff.objects.get(user = request.user).staffID
 
-    PO = PurchaseOrder.objects.filter(staffID= fo_id)
+    # PO = PurchaseOrder.objects.filter(staffID= fo_id)
     po_items = PurchaseOrderProduct.objects.all().values()
 
     print(po_items)
@@ -93,3 +93,22 @@ def backtoHome(request):
 #         'PO_item': PO_item
 #     }
 #     return render(request, 'PurchaseOrder/viewOnePO.html', context)
+
+def selectFunction(request, quotationID):
+    #selected ID = button yang kau tekan
+    #update status - approved
+    #update quotation list for finance officer
+    #context
+
+def selectPo(request, purchaseOrderID):
+    selected_po_id = PurchaseOrder.objects.get(purchaseOrderID=purchaseOrderID)
+
+    po_items = PurchaseOrderProduct.objects.filter(purchaseOrderID=selected_po_id) 
+    
+    print(po_items)
+    context = {
+        'selected_po_id': selected_po_id,
+        'po_items' : po_items,
+    }
+
+    return render(request,'viewPurchaseOrder/selectPo.html', context)

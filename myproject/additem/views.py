@@ -31,3 +31,4 @@ def additemconfirmation(request):
         'item_description': newitem_description,
     }
     return render(request,'additem/additemconfirmation.html',context)
+
