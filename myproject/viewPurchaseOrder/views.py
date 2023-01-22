@@ -9,21 +9,6 @@ from app.models import PurchaseOrder, PurchaseOrderProduct, Staff
 from django.http import HttpRequest
 
 @login_required
-# def viewPo(request):
-#     # fo_id = Staff.objects.get(user = request.user).staffID
-
-#     # PO = PurchaseOrder.objects.filter(staffID= fo_id)
-#     po_items = PurchaseOrderProduct.objects.all().values()
-
-#     print(po_items)
-#     context = {
-#         'title':'View Purchase Order',
-#         'year':datetime.now().year,
-#         'PO': PO,
-#         'po_items': po_items,
-#     }
-#     return render(request, 'viewPurchaseOrder/viewPo.html', context)
-
 def viewPo(request):
     po_list = PurchaseOrder.objects.filter(selected=True).only('purchaseOrderID', 'staffID', 'poStatus')
 

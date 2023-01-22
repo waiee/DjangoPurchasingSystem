@@ -75,6 +75,8 @@ tr > td:first-child {
 </div>
 
 <div>
+<form class="margintop" action='selectPo' method='POST'></form>
+{% csrf_token %} 
 <table>
 <thead>
     <th>No.</th>
@@ -85,22 +87,20 @@ tr > td:first-child {
 </thead>
 
 {% for po in po_list %}
-    {%if po.poStatus == 'Pending' %}
+{%if po.poStatus == 'Pending' %}
     <tr>
         <td>{{po}}</td>
         <td>{{po.purchaseOrderID}}</td>
         <td>{{po.staffID}}</td>
         <td>{{po.poStatus}}</td>
         <td>
-            <form class="margintop" action='selectPo' method='POST'>
-                {% csrf_token %} 
-                <button type="submit" name={{po.purchaseOrderID}} value={{po.purchaseOrderID  class="btn btn-info">Select</button><br />
-            </form>
+            <button type="submit" name={{po.purchaseOrderID}} value={{po.purchaseOrderID  class="btn btn-info">Select</button><br />
         </td>
     </tr>
     {%endif%}
 {% endfor %}
 </table>
+</form>
 </div>
 
 <br>
