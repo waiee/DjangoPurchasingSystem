@@ -77,6 +77,7 @@ class PurchaseOrder(models.Model):
     qtyProvided = models.PositiveIntegerField()
     totalPrice = models.DecimalField(default=None, null=True, max_digits=8, decimal_places=2)
     poStatus = models.CharField(max_length=20)
+    selected = models.BooleanField(default=False)
 
     def __str__(self):
         return str(self.purchaseOrderID)

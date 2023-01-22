@@ -25,9 +25,9 @@ from django.http import HttpRequest
 #     return render(request, 'viewPurchaseOrder/viewPo.html', context)
 
 def viewPo(request):
-    po_list = PurchaseOrder.objects.filter(selected=True).only('PurchaseOrderID', 'staffID', 'poStatus')
+    po_list = PurchaseOrder.objects.filter(selected=True).only('purchaseOrderID', 'staffID', 'poStatus')
 
-    print(po_list)
+    # print(po_list)
     context = {
         'title':'View Purchase Order',
         'year':datetime.now().year,
