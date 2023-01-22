@@ -48,8 +48,31 @@
     button:hover{
         background-color: #367e81;
     }
+    .approve{
+        padding : 10px 20px;
+        margin : 5px 2px;
+        display: inline-block;
+        width: 150px;
+        border: none;
+        border-radius: 12px;
+        background-color:#3E9C4D;
+        color: white;
+        display: inline-block;
+    }
 
-    #container{
+    .reject{
+        padding : 10px 20px;
+        margin : 5px 2px;
+        display: inline-block;
+        width: 150px;
+        border: none;
+        border-radius: 12px;
+        background-color:#8F3F3F;
+        color: white;
+        display: inline-block;
+    }
+
+    .centre{
         text-align: center;
     }
 
@@ -78,7 +101,7 @@
                 <td>{{pro.productName}}</td>
                 <td>RM{{pro.productPriceperUnit}}</td>
                 <td>{{qtyProvided}}</td>
-                <td>RM{{pro.productPriceperUnit}}</td>
+                <td>RM{{totalPrice}}</td>
             </tr>
         {% endfor %}
     <br/>
@@ -101,7 +124,7 @@
                 <td>{{vendorID}}</td>
                 <td>-</td>
                 <td>{{poStatus}}</td>
-                <td>RM</td>
+                <td>RM{{totalPrice}}</td>
             </tr>
         <br/>
     </table>
@@ -109,14 +132,19 @@
 
 <br>
 <div>
-    <container>
+    <div class="centre">
         <form class="margintop" action='backtoList' method='GET'>
-            <button type="submit" class="button">Back</button><br />
+            <button type="submit" class="approve">Approve</button><br />
         </form>
     
         <form class="margintop" action='backtoList' method='GET'>
-            <button type="submit" class="button">Approve</button><br />
+            <button type="submit" class="reject">Reject</button><br />
         </form>
-    </container>
+    </div> <br>
+    <div>
+        <form class="margintop" action='backtoList' method='GET'>
+            <button type="submit" class="button">Back</button><br />
+        </form>
+    </div>
 </div>
 {% endblock %}

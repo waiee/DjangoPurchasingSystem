@@ -31,6 +31,7 @@ def selectPo(request):
             staffID = po.get().staffID
             vendorID = po.get().vendorID
             poStatus = po.get().poStatus
+            totalPrice = po.get().totalPrice
     
     quo = po.get().quotationID
     
@@ -39,7 +40,7 @@ def selectPo(request):
         'products': products, 
         'qtyProvided': qtyProvided,
         'staffID': staffID, 'vendorID':vendorID,
-        'poStatus':poStatus,
+        'poStatus':poStatus, 'totalPrice': totalPrice,
     }
 
     return render(request,'viewPurchaseOrder/selectPo.html', context)
