@@ -34,7 +34,7 @@ def selectPo(request):
             quo = po.get().quotationID
 
     context = {
-        'po': po.get(), 'quo': quo, 
+        'po': po.get(), 'quo': quo.get(), 
         'products': products, 
         'qtyProvided': qtyProvided,
         'staffID': staffID, 'vendorID':vendorID,
