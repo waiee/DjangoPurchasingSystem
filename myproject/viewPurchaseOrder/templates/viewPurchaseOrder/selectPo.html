@@ -45,18 +45,18 @@
     <br/>
     <thead>
         <th>Product ID</th>
-        <th>Product Name</th>
+        <th>Name</th>
         <th>Price per unit (RM)</th>
-        <th>Quantity</th>
-        <th>Total Price</th>
+        <th>Quantity Provided</th>
+        <th>Total Price (RM)</th>
     </thead>
         {%for pro in products%}
             <tr>
                 <td>{{pro.productID}}</td>
                 <td>{{pro.productName}}</td>
-                <td>{{pro.productPriceperUnit}}</td>
+                <td>RM{{pro.productPriceperUnit}}</td>
                 <td>{{qtyProvided}}</td>
-                <td>{{pro.productPriceperUnit}}</td>
+                <td>RM{{pro.productPriceperUnit}}</td>
             </tr>
         {% endfor %}
     <br/>
