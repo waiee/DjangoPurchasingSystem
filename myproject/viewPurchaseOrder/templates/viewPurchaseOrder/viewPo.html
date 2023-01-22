@@ -85,7 +85,6 @@ tr > td:first-child {
 </thead>
 
 {% for po in po_list %}
-    {% if po.totalPrice >= 1 %}
     <tr>
         <td>{{po}}</td>
         <td>{{po.purchaseOrderID}}</td>
@@ -98,7 +97,6 @@ tr > td:first-child {
             </form>
         </td>
     </tr>
-    {% endif %}
 {% endfor %}
 </table>
 </div>
