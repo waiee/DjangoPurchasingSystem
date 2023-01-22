@@ -22,6 +22,7 @@ def viewPo(request):
 def selectPo(request):
     data = PurchaseOrder.objects.filter()
     po = None
+    
 
     for i in data:
         if i.purchaseOrderID in request.POST:
@@ -34,8 +35,7 @@ def selectPo(request):
 
     context = {
         'po': po.get(), 'quo': quo, 
-        'productName' : productName,'qtyProvided': qtyProvided, 
-        'productID':productID, 'productPriceperUnit':productPriceperUnit,
+        'qtyProvided': qtyProvided, 
     }
 
     return render(request,'viewPurchaseOrder/selectPo.html', context)
