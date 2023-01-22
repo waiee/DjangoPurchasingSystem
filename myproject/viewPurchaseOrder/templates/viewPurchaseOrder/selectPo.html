@@ -40,12 +40,17 @@
             border-radius: 12px;
             background-color:#00ADB5;
             color: white;
+            display: inline-block;
             
     
     }
     
     button:hover{
         background-color: #367e81;
+    }
+
+    #container{
+        text-align: center;
     }
 
 </style>
@@ -103,7 +108,15 @@
 </div>
 
 <br>
-<form class="margintop" action='backtoList' method='GET'>
-  <button type="submit" class="button">Back</button><br />
-</form>
+<div>
+    <container>
+        <form class="margintop" action='backtoList' method='GET'>
+            <button type="submit" class="button">Back</button><br />
+        </form>
+    
+        <form class="margintop" action='backtoList' method='GET'>
+            <button type="submit" class="button">Approve</button><br />
+        </form>
+    </container>
+</div>
 {% endblock %}
