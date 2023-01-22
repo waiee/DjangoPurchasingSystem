@@ -10,8 +10,7 @@ from django.http import HttpRequest
 
 @login_required
 def viewPo(request):
-    user = request.User
-    fo_id = Staff.objects.get(user=user).staffID
+    fo_id = Staff.objects.get(user = request.user).staffID
 
     PO = PurchaseOrder.objects.filter(staffID= fo_id)
     po_items = PurchaseOrderProduct.objects.all().values()
