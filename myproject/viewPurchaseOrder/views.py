@@ -4,8 +4,9 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
 from django.shortcuts import render, redirect
-from app.models import QuotationItem, PurchaseOrder
+from app.models import PurchaseOrder, PurchaseOrderProduct
 from django.http import HttpRequest
+from django import user
 
 @login_required
 
@@ -13,36 +14,32 @@ def viewPo(request):
     po_id = PurchaseOrder.objects.get(user=request.user).purchaseOrderID
 
     PO = PurchaseOrder.objects.filter(purchaseOrderID=po_id)
-    po_list = PurchaseOrder.objects.all().values()
+    po_items = PurchaseOrderProduct.objects.all().values()
 
-    return render(
-        request,
-        'viewPurchaseOrder/viewPo.html',
-        {
-            'title':'View Purchase Order',
-            'year':datetime.now().year,
-            'PO': PO,
-            'po_list' : po_list,
-        }
-    )
+    print(po_items)
+    context = {
+        'title':'View Purchase Order',
+        'year':datetime.now().year,
+        'PO': PO,
+        'po_items': po_items,
+    }
+
+    return render(request, 'viewPurchaseOrder/viewPo.html', context)
 
 def selectPo(request, purchaseOrderID):
-    if request.method == "POST":
-        selected = request.POST['selected']
-        purchaseOrderID = PurchaseOrder.objects.get(purchaseOrderID = purchaseOrderID)
+    selected_po_id = PurchaseOrder.objects.get(purchaseOrderID=purchaseOrderID)
 
-        return render(
-            request,
-            'viewPurchaseOrder/selectPo.html',
-            {
-                'selected': selected,
-                'purchaseOrderID' : purchaseOrderID,
-            }
-        )
-    else:
-        return render(request, 
-        'viewPurchaseOrder/selectPo.html',{})
+    po_items = PurchaseOrderProduct.objects.filter(purchaseOrderID=selected_po_id) 
+    print(po_items)
 
+    context = {
+        'selected_po_id': selected_po_id,
+        'po_items' : po_items,
+    }
+
+    return render(request,'viewPurchaseOrder/selectPo.html', context)
+
+##############################################################################################
 def searchPo(request):
     if request.method == "POST":
         searched = request.POST['searched']

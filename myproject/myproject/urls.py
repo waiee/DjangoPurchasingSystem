@@ -43,13 +43,13 @@ urlpatterns = [
 
     re_path(r'^searchPo$', viewPo_views.searchPo, name='searchPo'),
     path('viewPo/', viewPo_views.viewPo, name='viewPo'),
-    path('viewPo/selectPo', viewPo_views.selectPo, name='selectPo'),
-    path('viewPo/selectPo/<str:purchaseOrderID>/', viewPo_views.selectPo, name='selectPo'),
+    path('selectPo/', viewPo_views.selectPo, name='selectPo'),
+    path('selectPo/<str:purchaseOrderID>/', viewPo_views.selectPo, name='selectPo'),
     re_path(r'^backtoHome$', viewPo_views.backtoHome, name='backtoHome'),
 
     # re_path(r'^selectPo$', viewPo_views.selectPo, name='selectPo'),
 ]
 
-#     path('view_one_PO/', view_items.view_one_PO, name='view_one_PO'),
-#     path('view_one_PO/<str:po_id>', view_items.view_one_PO, name='view_one_PO'),
-# ]
+# path('view_PO/', view_items.view_PO, name='view_PO'),
+# path('view_one_PO/', view_items.view_one_PO, name='view_one_PO'),
+# path('view_one_PO/<str:po_id>', view_items.view_one_PO, name='view_one_PO'),
