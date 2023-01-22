@@ -47,10 +47,13 @@ def selectPo(request):
 
 def approvePo(request):
     currentPO = PurchaseOrder.objects.filter(purchaseOrderID = request.POST.get("PurchaseOrder"))
-    
+
+    poStatus = request.post.get('poStatus')
+
+    if poStatus == ''
 
     context = {
-        'currentPO':currentPO,            
+        'currentPO':currentPO, 'poStatus': poStatus           
     }
 
     return render(request, 'viewPurchaseOrder/messagePo.html', context)
