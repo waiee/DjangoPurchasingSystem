@@ -21,7 +21,6 @@ def viewPo(request):
         'PO': PO,
         'po_items': po_items,
     }
-
     return render(request, 'viewPurchaseOrder/viewPo.html', context)
 
 def selectPo(request, purchaseOrderID):
