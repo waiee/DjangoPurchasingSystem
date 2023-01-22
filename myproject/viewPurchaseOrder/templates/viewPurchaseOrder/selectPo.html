@@ -49,14 +49,16 @@
         <th>Price per unit (RM)</th>
         <th>Quantity</th>
         <th>Total Price</th>
+        <th>Status</th>
     </thead>
         {%for pro in products%}
             <tr>
                 <td>{{pro.productID}}</td>
-                <td>{{po.productName}}</td>
-                <td>{{po.productPriceperUnit}}</td>
-                <td>{{po.qtyProvided}}</td>
-                <td>{{po.productPriceperUnit}}</td>
+                <td>{{pro.productName}}</td>
+                <td>{{pro.productPriceperUnit}}</td>
+                <td>{{qtyProvided}}</td>
+                <td>{{pro.productPriceperUnit}}</td>
+                <td>{{poStatus}}</td>
             </tr>
         {% endfor %}
     <br/>
