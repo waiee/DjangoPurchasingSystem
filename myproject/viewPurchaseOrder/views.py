@@ -28,7 +28,6 @@ def selectPo(request):
         if i.purchaseOrderID in request.POST:
             po = PurchaseOrder.objects.filter(purchaseOrderID=i.purchaseOrderID)
             products = PurchaseOrderProduct.objects.filter(purchaseOrderID=i.purchaseOrderID, productPurchased=True)
-            
             qtyProvided = po.get().qtyProvided
 
 

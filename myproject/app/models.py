@@ -77,9 +77,9 @@ class PurchaseOrderProduct(models.Model):
     productID = models.CharField(primary_key=True, max_length=10)
     purchaseOrderID = models.ForeignKey(PurchaseOrder, default=None, on_delete=models.CASCADE,null=True)
     vendorID = models.ForeignKey(Vendor,default=None, on_delete=models.CASCADE)
-    productName = models.CharField(max_length=40, null=True)
-    quantity = models.PositiveIntegerField(null=True)
-    productPriceperUnit = models.DecimalField(default=None, null=True, max_digits=8, decimal_places=2)
+    productName = models.TextField(max_length=40, null=True)
+    quantity = models.IntegerField(null=True)
+    productPriceperUnit = models.FloatField(default=None, null=True)
     productPurchased = models.BooleanField(default=False)
 
     def __str__(self):
