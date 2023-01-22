@@ -44,11 +44,15 @@
 <table>
     <br/>
     <thead>
+        <th>Product ID</th>
         <th>Product Name</th>
+        <th>Price per unit (RM)</th>
         <th>Quantity</th>
         </thead>
             <tr>
+                <td>{{po.productID}}</td>
                 <td>{{po.productName}}</td>
+                <td>{{po.productPriceperUnit}}</td>
                 <td>{{po.qtyProvided}}</td>
             </tr>
     <br/>
@@ -56,7 +60,7 @@
 </table>
 
 <br>
-<form class="margintop" action='backtoHome' method='GET'>
+<form class="margintop" action='backtoList' method='GET'>
   <button type="submit" class="btn btn-info">Back</button><br />
 </form>
 {% endblock %}

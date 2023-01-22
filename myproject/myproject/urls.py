@@ -44,4 +44,6 @@ urlpatterns = [
     re_path(r'^viewPo/$', viewPo_views.viewPo, name='viewPo'),
     re_path(r'^viewPo/selectPo$', viewPo_views.selectPo, name='selectPo'),
     re_path(r'^backtoHome$', viewPo_views.backtoHome, name='backtoHome'),
+    re_path(r'^viewPo/backtoHome$', viewPo_views.backtoHome, name='backtoHome'),
+    re_path(r'^viewPo/backtoList$', viewPo_views.backtoList, name='backtoList'),
 ]
