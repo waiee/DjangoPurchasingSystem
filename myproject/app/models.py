@@ -57,7 +57,7 @@ class PurchaseOrderProduct(models.Model):
 class Quotation(models.Model):
     quotationID = models.CharField(primary_key=True, max_length=10)
     staffID = models.ForeignKey(Staff,default=None, on_delete=models.CASCADE)
-    itemID = models.ForeignKey(QuotationItem,default=None, on_delete=models.CASCADE)
+    # itemID = models.ForeignKey(QuotationItem,default=None, on_delete=models.CASCADE)
     vendorID = models.ForeignKey(Vendor,default=None, on_delete=models.CASCADE)
     totalPrice = models.DecimalField(default=None, null=True, max_digits=8, decimal_places=2)
     validityDate = models.DateField()
