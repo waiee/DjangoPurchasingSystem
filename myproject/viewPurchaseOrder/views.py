@@ -22,11 +22,12 @@ def viewPo(request):
 def selectPo(request):
     data = PurchaseOrder.objects.filter()
     po = None
-    
+
 
     for i in data:
         if i.purchaseOrderID in request.POST:
             po = PurchaseOrder.objects.filter(purchaseOrderID=i.purchaseOrderID)
+            items = PurchaseOrderProduct.objects.filter(purchaseOrderID=i.purchaseOrderID, productPurchased=True)
             
             qtyProvided = po.get().qtyProvided
 

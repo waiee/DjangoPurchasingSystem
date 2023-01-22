@@ -54,6 +54,7 @@ class QuotationItem(models.Model):
     itemName = models.CharField(max_length=40, null=True)
     quantity = models.PositiveIntegerField(default=None, null=True)
     itemPriceperUnit = models.DecimalField(default=None, null=True, max_digits=8, decimal_places=2)
+    itemPurchased = models.BooleanField(default=False)
     
     def __str__(self):
         return str(self.itemID)
@@ -79,6 +80,7 @@ class PurchaseOrderProduct(models.Model):
     productName = models.CharField(max_length=40, null=True)
     quantity = models.PositiveIntegerField(null=True)
     productPriceperUnit = models.DecimalField(default=None, null=True, max_digits=8, decimal_places=2)
+    productPurchased = models.BooleanField(default=False)
 
     def __str__(self):
         return str(self.productID)
