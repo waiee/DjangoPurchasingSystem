@@ -30,7 +30,6 @@ def selectPo(request):
             products = PurchaseOrderProduct.objects.filter(purchaseOrderID=i.purchaseOrderID, productPurchased=True)
             qtyProvided = po.get().qtyProvided
 
-
     quo = po.get().quotationID
 
     context = {
