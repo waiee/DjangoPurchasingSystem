@@ -11,11 +11,9 @@ from django.http import HttpRequest
 
 def viewPo(request):
     po_id = PurchaseOrder.objects.get(user=request.user).purchaseOrderID
-    
-    PO = PurchaseOrder.objects.filter(finance_officer_id=fo_id)
-    Po_item = POItems.objects.all().values()
 
-    po_list = PurchaseOrder.objects.all()
+    PO = PurchaseOrder.objects.filter(purchaseOrderID=po_id)
+    po_list = PurchaseOrder.objects.all().values()
 
     return render(
         request,
@@ -23,6 +21,7 @@ def viewPo(request):
         {
             'title':'View Purchase Order',
             'year':datetime.now().year,
+            'PO': PO,
             'po_list' : po_list,
         }
     )
