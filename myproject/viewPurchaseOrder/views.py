@@ -31,8 +31,7 @@ def selectPo(request):
             staffID = po.get().staffID
             vendorID = po.get().vendorID
             poStatus = po.get().poStatus
-
-    quo = po.get().quotationID
+            quo = po.get().quotationID
 
     context = {
         'po': po.get(), 'quo': quo, 

@@ -40,7 +40,7 @@ urlpatterns = [
     re_path(r'^additemform$', additem_views.additemform, name='additem_form'),
     re_path(r'^additemconfirmation$', additem_views.additemconfirmation, name='additem_confirmation'),
 
-    re_path(r'^searchPo$', viewPo_views.searchPo, name='searchPo'),
+    re_path(r'^viewPo/searchPo$', viewPo_views.searchPo, name='searchPo'),
     re_path(r'^viewPo/$', viewPo_views.viewPo, name='viewPo'),
     re_path(r'^viewPo/selectPo$', viewPo_views.selectPo, name='selectPo'),
     re_path(r'^backtoHome$', viewPo_views.backtoHome, name='backtoHome'),
