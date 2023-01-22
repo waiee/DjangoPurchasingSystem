@@ -21,7 +21,6 @@ from datetime import datetime
 
 from app import views as main_views
 from additem import views as additem_views
-from viewPurchaseOrder import views as viewPo_views
 
 admin.autodiscover()
 
@@ -39,11 +38,4 @@ urlpatterns = [
     re_path(r'^menu$', main_views.menu, name='menu'),
     re_path(r'^additemform$', additem_views.additemform, name='additem_form'),
     re_path(r'^additemconfirmation$', additem_views.additemconfirmation, name='additem_confirmation'),
-
-    re_path(r'^searchPo$', viewPo_views.searchPo, name='searchPo'),
-    re_path(r'^viewPo/$', viewPo_views.viewPo, name='viewPo'),
-    re_path(r'^viewPo/selectPo$', viewPo_views.selectPo, name='selectPo'),
-    re_path(r'^backtoHome$', viewPo_views.backtoHome, name='backtoHome'),
-    re_path(r'^viewPo/backtoHome$', viewPo_views.backtoHome, name='backtoHome'),
-    re_path(r'^viewPo/backtoList$', viewPo_views.backtoList, name='backtoList'),
 ]
