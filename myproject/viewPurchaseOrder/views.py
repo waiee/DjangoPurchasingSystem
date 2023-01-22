@@ -29,6 +29,8 @@ def selectPo(request):
             products = PurchaseOrderProduct.objects.filter(purchaseOrderID=i.purchaseOrderID, productPurchased=True)
             qtyProvided = po.get().qtyProvided
             staffID = po.get().staffID
+            vendorID = po.get().vendorID
+            poStatus = po.get().poStatus
 
     quo = po.get().quotationID
 
@@ -36,7 +38,8 @@ def selectPo(request):
         'po': po.get(), 'quo': quo, 
         'products': products, 
         'qtyProvided': qtyProvided,
-        'staffID': staffID,
+        'staffID': staffID, 'vendorID':vendorID,
+        'poStatus':poStatus,
     }
 
     return render(request,'viewPurchaseOrder/selectPo.html', context)
