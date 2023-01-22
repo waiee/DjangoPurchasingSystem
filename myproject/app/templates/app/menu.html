@@ -25,7 +25,7 @@
     <br />
     {% if is_employee %}
          <h2>Employee Menu</h2>
-    {% elif is_manager %}
+    {% elif is_manager %}  
          <h2>Manager Menu</h2>
     {% endif %}
 
@@ -44,7 +44,8 @@
     </form>
         </td></tr>
 
-    {% elif is_manager %}            
+    {% elif is_manager %}
+        {% include "app/layoutManager.html" %}         
         <tr><td>
     <form class="margintop" action='viewPo' method='GET'>
         <button type="submit" class="button">View Purchase Order</button><br />
@@ -58,11 +59,9 @@
         </td></tr>
                       
     {% else %}            
-
         <tr><td>
             <p>Undefined User.</p>
         </td></tr>
-            
     {% endif %}            
     </table>
 </div>
