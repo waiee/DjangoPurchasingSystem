@@ -29,14 +29,13 @@ def selectPo(request):
             po = PurchaseOrder.objects.filter(purchaseOrderID=i.purchaseOrderID)
             products = PurchaseOrderProduct.objects.filter(purchaseOrderID=i.purchaseOrderID, productPurchased=True)
             qtyProvided = po.get().qtyProvided
-            poStatus = po.get().poStatus
 
     quo = po.get().quotationID
 
     context = {
         'po': po.get(), 'quo': quo, 
         'products': products, 
-        'qtyProvided': qtyProvided, 'poStatus':poStatus,
+        'qtyProvided': qtyProvided,
     }
 
     return render(request,'viewPurchaseOrder/selectPo.html', context)
