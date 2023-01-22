@@ -34,18 +34,39 @@ def viewPo(request):
     }
     return render(request, 'viewPurchaseOrder/viewPo.html', context)
 
-def selectPo(request, purchaseOrderID):
-    selected_po_id = PurchaseOrder.objects.get(purchaseOrderID=purchaseOrderID)
+def selectPo(request):
+    data = PurchaseOrder.objects.filter()
+    po = None
+    productName = None
+    qtyProvided = None
 
-    po_items = PurchaseOrderProduct.objects.filter(purchaseOrderID=selected_po_id) 
-    
-    print(po_items)
+    for i in data:
+        if i.purchaseOrderID in request.POST:
+            po = PurchaseOrder.objects.filter(purchaseOrderID=i.purchaseOrderID)
+            productName = po.get().productID.productName.split(",")
+            qtyProvided = po.get().productID.qtyProvided.split(",")
+
+    quo = po.get().quotationID
+
     context = {
-        'selected_po_id': selected_po_id,
-        'po_items' : po_items,
+        'po': po.get(), 'quo': quo, 
+        'productName' : productName,'qtyProvided': qtyProvided, 
     }
 
     return render(request,'viewPurchaseOrder/selectPo.html', context)
+
+# def selectPo(request, purchaseOrderID):
+#     selected_po_id = PurchaseOrder.objects.get(purchaseOrderID=purchaseOrderID)
+
+#     po_items = PurchaseOrderProduct.objects.filter(purchaseOrderID=selected_po_id) 
+    
+#     print(po_items)
+#     context = {
+#         'selected_po_id': selected_po_id,
+#         'po_items' : po_items,
+#     }
+
+#     return render(request,'viewPurchaseOrder/selectPo.html', context)
 
 ##############################################################################################
 def searchPo(request):

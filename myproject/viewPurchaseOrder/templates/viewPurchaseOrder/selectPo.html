@@ -34,7 +34,7 @@
 
 </style>
 <div>
-    <h2 style="text-align: center;" ><strong> Purchase Order #{{selected}} </strong></h2>
+    <h2 style="text-align: center;" ><strong> Purchase Order Details</strong></h2>
     <br/>
   <!-- <form class="margintop" action = 'searchPo' method='POST'>
     {% csrf_token %} 
@@ -42,38 +42,16 @@
     <button class="btn btn-info">Search</button>
     </form> -->
 <table>
-{% if selected %}
-    {% if purchaseOrderID %}
-        <em>You selected {{selected}}</em>
-        <br/>
-        <thead>
-            <th>No.</th>
-            <th>Purchase Order ID</th>
-            <th>Staff ID</th>
-            <th>Status</th>
-            <th>Selection</th>
-        </thead>
-            {% for po in purchaseOrderID %}
-                <tr>
-                    <td>{{po}}</td>
-                    <td>{{po.purchaseOrderID}}</td>
-                    <td>{{po.staffID}}</td>
-                    <td>{{po.poStatus}}</td>
-                    <td>
-                        <form class="margintop" action='selectPo' method='POST'>
-                        {% csrf_token %} 
-                        <button type="submit" value="po.purchaseOrderID" name="selected" class="btn btn-info">Select</button><br />
-                    </form>
-                    </td>
-                </tr>
-            {% endfor %}
-        {% else %}
-            <p style="color:red"><em>ID "{{searched}}"" not found, Please try again</em></p>
-        {% endif %}
-{% else %}
-    <p style="color:red"><em>Please enter an ID to search</em></p>
     <br/>
-{% endif %}
+    <thead>
+        <th>Product Name</th>
+        <th>Quantity</th>
+        </thead>
+            <tr>
+                <td>{{po.productName}}</td>
+                <td>{{po.qtyProvided}}</td>
+            </tr>
+    <br/>
 </div>
 </table>
 
