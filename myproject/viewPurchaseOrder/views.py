@@ -2,6 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from datetime import datetime
 from django.shortcuts import render, redirect
 from app.models import PurchaseOrder, PurchaseOrderProduct, Staff
@@ -9,7 +10,8 @@ from django.http import HttpRequest
 
 @login_required
 def viewPo(request):
-    fo_id = Staff.objects.get(user=request.user).staffID
+    user = request.User
+    fo_id = Staff.objects.get(user=user).staffID
 
     PO = PurchaseOrder.objects.filter(staffID= fo_id)
     po_items = PurchaseOrderProduct.objects.all().values()
@@ -27,8 +29,8 @@ def selectPo(request, purchaseOrderID):
     selected_po_id = PurchaseOrder.objects.get(purchaseOrderID=purchaseOrderID)
 
     po_items = PurchaseOrderProduct.objects.filter(purchaseOrderID=selected_po_id) 
+    
     print(po_items)
-
     context = {
         'selected_po_id': selected_po_id,
         'po_items' : po_items,
