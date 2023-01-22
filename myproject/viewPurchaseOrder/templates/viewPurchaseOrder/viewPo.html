@@ -75,8 +75,6 @@ tr > td:first-child {
 </div>
 
 <div>
-<form class="margintop" action='selectPo' method='POST'></form>
-{% csrf_token %} 
 <table>
 <thead>
     <th>No.</th>
@@ -94,13 +92,15 @@ tr > td:first-child {
         <td>{{po.staffID}}</td>
         <td>{{po.poStatus}}</td>
         <td>
-            <button type="submit" name={{po.purchaseOrderID}} value={{po.purchaseOrderID  class="btn btn-info">Select</button><br />
+            <form class="margintop" action='selectPo' method='POST'>
+                {% csrf_token %} 
+                <button type="submit" name={{po.purchaseOrderID}} value={{po.purchaseOrderID}}  class="btn btn-info">Select</button><br />
+            </form>
         </td>
     </tr>
     {%endif%}
 {% endfor %}
 </table>
-</form>
 </div>
 
 <br>
