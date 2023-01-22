@@ -27,7 +27,7 @@ def selectPo(request):
     for i in data:
         if i.purchaseOrderID in request.POST:
             po = PurchaseOrder.objects.filter(purchaseOrderID=i.purchaseOrderID)
-            items = PurchaseOrderProduct.objects.filter(purchaseOrderID=i.purchaseOrderID, productPurchased=True)
+            products = PurchaseOrderProduct.objects.filter(purchaseOrderID=i.purchaseOrderID, productPurchased=True)
             
             qtyProvided = po.get().qtyProvided
 
@@ -36,6 +36,7 @@ def selectPo(request):
 
     context = {
         'po': po.get(), 'quo': quo, 
+        'products': products, 
         'qtyProvided': qtyProvided, 
     }
 
