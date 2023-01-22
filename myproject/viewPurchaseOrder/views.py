@@ -28,8 +28,8 @@ def selectPo(request):
     for i in data:
         if i.purchaseOrderID in request.POST:
             po = PurchaseOrder.objects.filter(purchaseOrderID=i.purchaseOrderID)
-            productName = po.get().productID.productName.split(",")
-            qtyProvided = po.get().productID.qtyProvided.split(",")
+            productName = po.get().productID.productName
+            qtyProvided = po.get().qtyProvided
 
     quo = po.get().quotationID
 

@@ -15,11 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path
-from app import views as main_views
 import django.contrib.auth.views
 from django.contrib.auth.views import LoginView, LogoutView
 from datetime import datetime
 
+from app import views as main_views
 from additem import views as additem_views
 from viewPurchaseOrder import views as viewPo_views
 
@@ -41,7 +41,7 @@ urlpatterns = [
     re_path(r'^additemconfirmation$', additem_views.additemconfirmation, name='additem_confirmation'),
 
     re_path(r'^searchPo$', viewPo_views.searchPo, name='searchPo'),
-    re_path(r'^viewPo$', viewPo_views.viewPo, name='viewPo'),
+    re_path(r'^viewPo/$', viewPo_views.viewPo, name='viewPo'),
+    re_path(r'^viewPo/selectPo$', viewPo_views.selectPo, name='selectPo'),
     re_path(r'^backtoHome$', viewPo_views.backtoHome, name='backtoHome'),
-    re_path(r'^selectPo$', viewPo_views.selectPo, name='selectPo'),
 ]
