@@ -6,10 +6,8 @@ from datetime import datetime
 from django.shortcuts import render, redirect
 from app.models import PurchaseOrder, PurchaseOrderProduct
 from django.http import HttpRequest
-from django import user
 
 @login_required
-
 def viewPo(request):
     po_id = PurchaseOrder.objects.get(user=request.user).purchaseOrderID
 
