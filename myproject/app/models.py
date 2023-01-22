@@ -66,7 +66,7 @@ class PurchaseOrder(models.Model):
     qtyNeeded = models.PositiveIntegerField()
     qtyProvided = models.PositiveIntegerField()
     totalPrice = models.DecimalField(default=None, null=True, max_digits=8, decimal_places=2)
-    poStatus = models.CharField(max_length=20)
+    poStatus = models.CharField(max_length=20, default="Pending")
     selected = models.BooleanField(default=False)
 
     def __str__(self):
