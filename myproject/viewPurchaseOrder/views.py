@@ -23,20 +23,6 @@ def viewPo(request):
     }
     return render(request, 'viewPurchaseOrder/viewPo.html', context)
 
-# def view_PO(request):
-#     fo_id = FinanceOfficer.objects.get(user=request.user).finance_officer_id
-
-#     PO = PurchaseOrder.objects.filter(finance_officer_id=fo_id)
-#     Po_item = POItems.objects.all().values()
-
-#     print(Po_item)
-#     context = {
-#         'PO': PO,
-#         'PO_item': Po_item
-#     }
-
-#     return render(request, 'PurchaseOrder/viewPO.html', context)
-
 def selectPo(request, purchaseOrderID):
     selected_po_id = PurchaseOrder.objects.get(purchaseOrderID=purchaseOrderID)
 
