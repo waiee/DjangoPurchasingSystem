@@ -45,6 +45,9 @@ def selectPo(request):
 
     return render(request,'viewPurchaseOrder/selectPo.html', context)
 
+def approvePo(request):
+    data = PurchaseOrder.objects.filter()
+
 ##############################################################################################
 def searchPo(request):
     if request.method == "POST":
