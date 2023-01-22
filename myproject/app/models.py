@@ -42,6 +42,7 @@ class Quotation(models.Model):
     validityDate = models.DateField()
     qtyProvided = models.PositiveIntegerField(null=True)
     quotationStatus = models.CharField(max_length=20)
+    selected = models.BooleanField(default=False)
 
     def __str__(self):
         return str(self.quotationID)
