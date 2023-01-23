@@ -56,10 +56,10 @@ def approvePo(request):
     #         currentPo.poStatus = "Approved"
     #         currentPo.update()
     #         print(currentPo.poStatus)
-
+    
     currentPo = PurchaseOrder.objects.filter(poStatus__in=['Pending','Rejected','Approved']).values()
     print(currentPo)
-    
+
     context = {
         'currentPo':currentPo         
     }
