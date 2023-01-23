@@ -58,7 +58,6 @@ def approvePo(request):
     context = {
         'currentPo':currentPo ,'poStatus':poStatus,           
     }
-
     return render(request, 'viewPurchaseOrder/messagePo.html', context)
 ##############################################################################################
 def searchPo(request):
