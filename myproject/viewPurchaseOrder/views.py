@@ -48,6 +48,7 @@ def selectPo(request):
 
 def approvePo(request):
     currentPo = PurchaseOrder.objects.filter(purchaseOrderID=request.POST.get("PurchaseOrder"))
+    po = PurchaseOrderProduct.objects.ge
     poStatus = request.POST.get('poStatus')
 
     if currentPo.poStatus == "Pending":
