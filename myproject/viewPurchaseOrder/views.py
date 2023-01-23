@@ -53,8 +53,8 @@ def approvePo(request):
     currentPo.poStatus = "Approved"
 
     print(dataP)
-    print(dataAp)
     print(currentPo)
+    print(dataAp)
     print(currentPo.poStatus)
 
     context = {
