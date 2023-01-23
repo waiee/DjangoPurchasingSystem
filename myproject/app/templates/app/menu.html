@@ -31,7 +31,7 @@
     {% endif %}
 
     <!-- <br /> -->
-    <table class="center">
+    <table>
     {% if is_employee %}
         <tr><td>
     <form class="margintop" action='additemform' method='GET'>
@@ -51,14 +51,12 @@
     <form class="margintop" action='viewPo' method='GET'>
         <button style="display: inline-block" type="submit" class="button">View Purchase Order</button><br />
     </form>
-
-    <form class="margintop" action='viewPo' method='GET'>
-        <button style="display: inline-block" type="submit" class="button">Approve/Reject Purchase Order</button><br />
-    </form>
         </td></tr>
             
         <tr><td>
-
+    <form class="margintop" action='viewPo' method='GET'>
+        <button style="display: inline-block" type="submit" class="button">Approve/Reject Purchase Order</button><br />
+    </form>
         </td></tr>
                       
     {% else %}            
