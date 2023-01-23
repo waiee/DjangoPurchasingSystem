@@ -51,6 +51,8 @@ def approvePo(request):
 
     if poStatus == "Pending":
         poStatus = "Approved"
+    else:
+        return render(request, 'viewPurchaseOrder/messagePo.html', context)
     currentPo.update()
     
     context = {
