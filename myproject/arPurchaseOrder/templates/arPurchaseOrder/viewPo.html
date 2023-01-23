@@ -84,7 +84,7 @@ tr > td:first-child {
     <br/>
     <h2 style="text-align: center;"> <strong>Purchase Order List</strong></h2>
     <br/>
-  <form class="margintop" action = 'searchPo' method='POST'>
+  <form class="margintop" action = 'arsearchPo' method='POST'>
     {% csrf_token %} 
     <input type="text" placeholder="Search here..." aria-label="Search here.." name = "searched")>
     <button class="btn btn-info">Search</button>
@@ -111,7 +111,7 @@ tr > td:first-child {
             <td>{{po.staffID}}</td>
             <td>{{po.poStatus}}</td>
             <td>
-                <form class="margintop" action='selectPo' method='POST'>
+                <form class="margintop" action='arselectPo' method='POST'>
                     {% csrf_token %} 
                     <button type="submit" name={{po.purchaseOrderID}} value={{po.purchaseOrderID}}  class="btn btn-info">Select</button><br />
                 </form>
@@ -142,7 +142,7 @@ tr > td:first-child {
                 <td>{{po.staffID}}</td>
                 <td>{{po.poStatus}}</td>
                 <td>
-                    <form class="margintop" action='selectPo' method='POST'>
+                    <form class="margintop" action='arselectPo' method='POST'>
                         {% csrf_token %} 
                         <button type="submit" name={{po.purchaseOrderID}} value={{po.purchaseOrderID}}  class="btn btn-info">Select</button><br />
                     </form>
@@ -173,7 +173,7 @@ tr > td:first-child {
                 <td>{{po.staffID}}</td>
                 <td>{{po.poStatus}}</td>
                 <td>
-                    <form class="margintop" action='selectPo' method='POST'>
+                    <form class="margintop" action='arselectPo' method='POST'>
                         {% csrf_token %} 
                         <button type="submit" name={{po.purchaseOrderID}} value={{po.purchaseOrderID}}  class="btn btn-info">Select</button><br />
                     </form>
@@ -186,7 +186,7 @@ tr > td:first-child {
 
 
 <br>
-<form class="margintop" action='backtoHome' method='GET'>
+<form class="margintop" action='arbacktoHome' method='GET'>
   <button type="submit" class="button">Back</button><br />
 </form>
 {% endblock %}

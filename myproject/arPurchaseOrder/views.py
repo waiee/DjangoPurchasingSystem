@@ -46,7 +46,7 @@ def selectPo(request):
 
     return render(request,'arPurchaseOrder/selectPo.html', context)
 
-def approvePo(request):
+def arapprovePo(request):
     #DATA BEFORE
     # dataP = PurchaseOrder.objects.filter(poStatus__in=['Pending']).values()
     # dataAp = PurchaseOrder.objects.filter(poStatus__in=['Approved']).values()
@@ -67,7 +67,7 @@ def approvePo(request):
     }
     return render(request, 'arPurchaseOrder/messagePo.html', context)
 
-def rejectPo(request):
+def arrejectPo(request):
     #DATA BEFORE
     # dataP = PurchaseOrder.objects.filter(poStatus__in=['Pending']).values()
     # dataAp = PurchaseOrder.objects.filter(poStatus__in=['Approved']).values()
@@ -89,7 +89,7 @@ def rejectPo(request):
     return render(request, 'arPurchaseOrder/messagePo.html', context)
 
 ##############################################################################################
-def searchPo(request):
+def arsearchPo(request):
     if request.method == "POST":
         searched = request.POST['searched']
         purchaseOrderID = PurchaseOrder.objects.filter(purchaseOrderID__contains=searched)
@@ -103,7 +103,7 @@ def searchPo(request):
     else:
         return render(request,'arPurchaseOrder/searchPo.html',context)
 
-def backtoHome(request):
+def arbacktoHome(request):
     """Renders the home page."""
     assert isinstance(request, HttpRequest)
     if request.user.is_authenticated:
@@ -117,7 +117,7 @@ def backtoHome(request):
                 'year': datetime.now().year,
             }
         )
-def backtoList(request):
+def arbacktoList(request):
     """Renders the home page."""
     assert isinstance(request, HttpRequest)
     if request.user.is_authenticated:
