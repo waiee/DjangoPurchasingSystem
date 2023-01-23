@@ -59,7 +59,7 @@ def approvePo(request):
 
     #change the status to Approved
     currentPo.poStatus = 'Approved'
-    currentPo.update()
+    currentPo.update(poStatus='Approved')
 
     #data after
     print(dataP)
