@@ -47,6 +47,7 @@ def selectPo(request):
 
 def approvePo(request):
     data = PurchaseOrder.objects.filter()
+    po = None
 
     for i in data:
         if i.purchaseOrderID in request.POST:
@@ -68,7 +69,7 @@ def approvePo(request):
     context = {
         'poStatus':poStatus,           
     }
-
+    
     return render(request, 'viewPurchaseOrder/messagePo.html', context)
 ##############################################################################################
 def searchPo(request):
