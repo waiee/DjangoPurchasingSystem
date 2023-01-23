@@ -1,0 +1,148 @@
+{% extends "app/layoutManager.html" %}
+
+{% block content %}
+<style>
+    table, th,td {
+       border:none;
+       border-collapse: collapse;
+       border-left: 1px solid white;
+       border-right: 1px solid white;
+       text-align: center;
+       padding:10px;
+   } 
+   
+   th {
+       background-color: #00ADB5;
+       color: white;
+       padding:15px;
+   
+   
+   }
+   tr{
+       border:1px solid;
+       border-color: white;
+       background-color: #393E46;
+       color: white;
+   }
+   tr > td {
+       min-width: 240px;
+       /* border: 1px solid black; */
+   }
+   tr > td:first-child {
+       min-width: 240px;
+   }
+   .button{
+            padding : 10px 20px;
+            margin : 5px 2px;
+            display: inline-block;
+            width: 180px;
+            border: none;
+            border-radius: 12px;
+            background-color:#00ADB5;
+            color: white;
+            display: inline-block;
+            
+    
+    }
+    
+    button:hover{
+        background-color: #367e81;
+    }
+    .approve{
+        padding : 13px 15px;
+        margin : 5px 2px;
+        width: 230px;
+        border: none;
+        border-radius: 12px;
+        background-color:#3E9C4D;
+        color: white;
+    }
+
+    .reject{
+        padding : 13px 15px;
+        margin : 5px 2px;
+        width: 230px;
+        border: none;
+        border-radius: 12px;
+        background-color:#8F3F3F;
+        color: white;
+    }
+
+    .centre{
+        text-align: center;
+    }
+
+</style>
+<div>
+    <br/>
+    <h2 style="text-align: center;" ><strong> Purchase Order #{{po}}</strong></h2>
+    <br/>
+  <!-- <form class="margintop" action = 'searchPo' method='POST'>
+    {% csrf_token %} 
+    <input type="text" placeholder="Search here..." aria-label="Search here.." name = "searched")>
+    <button class="btn btn-info">Search</button>
+    </form> -->
+<table>
+    <br/>
+    <thead>
+        <th>Product ID</th>
+        <th>Name</th>
+        <th>Price per unit (RM)</th>
+        <th>Quantity Provided</th>
+        <th>Total Price (RM)</th>
+    </thead>
+        {%for pro in products%}
+            <tr>
+                <td>{{pro.productID}}</td>
+                <td>{{pro.productName}}</td>
+                <td>RM{{pro.productPriceperUnit}}</td>
+                <td>{{qtyProvided}}</td>
+                <td>RM{{totalPrice}}</td>
+            </tr>
+        {% endfor %}
+    <br/>
+</table>
+</div>
+
+<div>
+    <br/>
+    <table>
+        <br/>
+        <thead>
+            <th>Staff ID</th>
+            <th>Vendor ID</th>
+            <th>Validity Date</th>
+            <th>Status</th>
+            <th>Final Total Price</th>
+        </thead>
+            <tr>
+                <td>{{staffID}}</td>
+                <td>{{vendorID}}</td>
+                <td>-</td>
+                <td>{{poStatus}}</td>
+                <td>RM{{totalPrice}}</td>
+            </tr>
+        <br/>
+    </table>
+</div>
+
+<br>
+<div class="centre">
+    <div>
+        <form style="display: inline-block" class="margintop" action='approvePo' method='POST'>
+            {% csrf_token %} 
+            <button type="submit" name="purchaseOrder" value="{{po.purchaseOrderID}}" class="approve">Approve</button><br />
+        </form>
+    
+        <form style="display: inline-block" class="margintop" action='rejectPo' method='POST'>
+            {% csrf_token %} 
+            <button type="submit" name="purchaseOrder" value="{{po.purchaseOrderID}}" class="reject">Reject</button><br />
+        </form>
+    </div> 
+    <div>
+        <form class="margintop" action='backtoList' method='GET'>
+            <button type="submit" class="button">Back</button><br />
+        </form>
+    </div>
+</div>
+{% endblock %}
