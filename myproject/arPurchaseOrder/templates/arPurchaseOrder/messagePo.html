@@ -3,31 +3,44 @@
 {% block content %}
 
 <style>
-     .button{
-            padding : 10px 20px;
-            margin : 5px 2px;
-            display: inline-block;
-            width: 150px;
-            border: none;
-            border-radius: 12px;
-            background-color:#00ADB5;
-            color: white;
-            
-    
+    .button{
+        padding : 13px 15px;
+        margin : 5px 2px;
+        width: 230px;
+        border: none;
+        border-radius: 12px;
+        background-color:#00ADB5;
+        color: white;
+        text-align: center;
     }
     
     button:hover{
         background-color: #367e81;
     }
+    .center{
+        text-align: center;
+    }
+
+    .align {
+    width: 1200px; 
+    margin: auto; 
+    text-align: center;
+    padding: 350px;
+    border-radius: 100px;
+}
+    
+    
 </style>
 
 
 <body>
-    <h2>This is message HTML, status become {{currentPo.poStatus}}</h2>
-    <br>
-    <form class="margintop" action='arbacktoHome' method='GET'>
-        <button type="submit" class="button">Back</button><br />
-    </form>
+    <div class="align">
+            <h2><strong>Status changed successfully.</strong></h2>
+            <br>
+            <form class="margintop" action='backtoHome' method='GET'>
+                <button type="submit" class="button">Back to Main Page</button><br/>
+            </form>
+    </div>
 </body>
 
 {% endblock %}

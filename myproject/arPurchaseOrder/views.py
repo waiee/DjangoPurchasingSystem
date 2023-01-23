@@ -19,7 +19,7 @@ def arviewPo(request):
     }
     return render(request, 'arPurchaseOrder/viewPo.html', context)
 
-def selectPo(request):
+def arselectPo(request):
     data = PurchaseOrder.objects.filter()
     po = None
 
@@ -121,7 +121,7 @@ def arbacktoList(request):
     """Renders the home page."""
     assert isinstance(request, HttpRequest)
     if request.user.is_authenticated:
-        return(redirect('/viewPo/'))
+        return(redirect('/arviewPo/'))
     return render(
             request,
             'arPurchaseOrder/viewPo.html',
