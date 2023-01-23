@@ -135,7 +135,7 @@
     <div>
         <form class="margintop" action='approvePo' method='POST'>
             {% csrf_token %} 
-            <button type="submit" value="{{po.purchaseOrderID}}" class="approve">Approve</button><br />
+            <button type="submit" name="purchaseOrder" value="{{po.purchaseOrderID}}" class="approve">Approve</button><br />
         </form>
     
         <form class="margintop" action='backtoList' method='GET'>
