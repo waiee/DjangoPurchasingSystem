@@ -3,7 +3,7 @@
 {% block content %}
 
 <style>
-     .button{
+    .button{
         padding : 13px 15px;
         margin : 5px 2px;
         width: 230px;
@@ -20,18 +20,26 @@
     .center{
         text-align: center;
     }
+
+    .align {
+    width: 1200px; 
+    margin: auto; 
+    text-align: center;
+    padding: 300px;
+    border-radius: 100px;
+}
+    
+    
 </style>
 
 
 <body>
-    <div>
-        <container class="center">
-            <h2 class="center"><strong>Status changed successfully.</strong></h2>
+    <div class="align">
+            <h2><strong>Status changed successfully.</strong></h2>
             <br>
             <form class="margintop" action='backtoHome' method='GET'>
-                <buttontype="submit" class="button">Back to Main Page</buttontype=><br />
+                <button type="submit" class="button">Back to Main Page</button><br/>
             </form>
-        </container>
     </div>
 </body>
 

@@ -22,6 +22,7 @@ from datetime import datetime
 from app import views as main_views
 from additem import views as additem_views
 from viewPurchaseOrder import views as viewPo_views
+from arPurchaseOrder import views as arviewPo_views
 
 admin.autodiscover()
 
@@ -39,13 +40,27 @@ urlpatterns = [
     re_path(r'^menu$', main_views.menu, name='menu'),
     re_path(r'^additemform$', additem_views.additemform, name='additem_form'),
     re_path(r'^additemconfirmation$', additem_views.additemconfirmation, name='additem_confirmation'),
-
-    re_path(r'^viewPo/searchPo$', viewPo_views.searchPo, name='searchPo'),
+    
     re_path(r'^viewPo/$', viewPo_views.viewPo, name='viewPo'),
+    re_path(r'^viewPo/searchPo$', viewPo_views.searchPo, name='searchPo'),
     re_path(r'^viewPo/selectPo$', viewPo_views.selectPo, name='selectPo'),
     re_path(r'^backtoHome$', viewPo_views.backtoHome, name='backtoHome'),
     re_path(r'^viewPo/backtoHome$', viewPo_views.backtoHome, name='backtoHome'),
     re_path(r'^viewPo/backtoList$', viewPo_views.backtoList, name='backtoList'),
     re_path(r'^viewPo/approvePo$', viewPo_views.approvePo, name='approvePo'),
     re_path(r'^viewPo/rejectPo$', viewPo_views.rejectPo, name='rejectPo'),
+
+    re_path(r'^arviewPo$', arviewPo_views.arviewPo, name='arviewPo'),
+    re_path(r'^arviewPo/$', arviewPo_views.arviewPo, name='arviewPo'),
+    re_path(r'^arviewPo/searchPo$', arviewPo_views.searchPo, name='searchPo'),
+    re_path(r'^arviewPo/selectPo$', arviewPo_views.selectPo, name='arselectPo'),
+    re_path(r'^arviewPo/backtoHome$', arviewPo_views.backtoHome, name='backtoHome'),
+    re_path(r'^arviewPo/backtoList$', arviewPo_views.backtoList, name='backtoList'),
+    re_path(r'^arviewPo/rejectPo$', arviewPo_views.rejectPo, name='rejectPo'),
+    re_path(r'^selectPo$', arviewPo_views.selectPo, name='selectPo'),
+    re_path(r'^searchPo$', arviewPo_views.searchPo, name='searchPo'),
+    re_path(r'^backtoHome$', arviewPo_views.backtoHome, name='backtoHome'),
+    re_path(r'^backtoList$', arviewPo_views.backtoList, name='backtoList'),
+    re_path(r'^approvePo$', arviewPo_views.approvePo, name='approvePo'),
+    re_path(r'^rejectPo$', arviewPo_views.rejectPo, name='rejectPo'),
 ]

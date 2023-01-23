@@ -9,7 +9,7 @@ from app.models import PurchaseOrder, PurchaseOrderProduct, Staff
 from django.http import HttpRequest
 
 @login_required
-def viewPo(request):
+def arviewPo(request):
     po_list = PurchaseOrder.objects.filter(selected=True).only('purchaseOrderID', 'staffID', 'poStatus')
 
     context = {
@@ -17,7 +17,7 @@ def viewPo(request):
         'year':datetime.now().year,
         'po_list': po_list,
     }
-    return render(request, 'viewPurchaseOrder/viewPo.html', context)
+    return render(request, 'arPurchaseOrder/viewPo.html', context)
 
 def selectPo(request):
     data = PurchaseOrder.objects.filter()
@@ -44,7 +44,7 @@ def selectPo(request):
         'poStatus':poStatus, 'totalPrice': totalPrice,
     }
 
-    return render(request,'viewPurchaseOrder/selectPo.html', context)
+    return render(request,'arPurchaseOrder/selectPo.html', context)
 
 def approvePo(request):
     #DATA BEFORE
@@ -65,7 +65,7 @@ def approvePo(request):
     context = {
         'currentPo':currentPo         
     }
-    return render(request, 'viewPurchaseOrder/messagePo.html', context)
+    return render(request, 'arPurchaseOrder/messagePo.html', context)
 
 def rejectPo(request):
     #DATA BEFORE
@@ -86,7 +86,7 @@ def rejectPo(request):
     context = {
         'currentPo':currentPo         
     }
-    return render(request, 'viewPurchaseOrder/messagePo.html', context)
+    return render(request, 'arPurchaseOrder/messagePo.html', context)
 
 ##############################################################################################
 def searchPo(request):
@@ -99,9 +99,9 @@ def searchPo(request):
                 'purchaseOrderID' : purchaseOrderID,
             }
 
-        return render(request,'viewPurchaseOrder/searchPo.html',context)
+        return render(request,'arPurchaseOrder/searchPo.html',context)
     else:
-        return render(request, 'viewPurchaseOrder/searchPo.html',context)
+        return render(request,'arPurchaseOrder/searchPo.html',context)
 
 def backtoHome(request):
     """Renders the home page."""
@@ -124,7 +124,7 @@ def backtoList(request):
         return(redirect('/viewPo/'))
     return render(
             request,
-            'viewPurchaseOrder/viewPo.html',
+            'arPurchaseOrder/viewPo.html',
             {
                 'title':'Purchase Order List',
                 'year': datetime.now().year,
