@@ -33,7 +33,7 @@ def selectPo(request):
             poStatus = po.get().poStatus
             totalPrice = po.get().totalPrice
     
-    quo = po.get().quotationID
+    quo = po.get().quotationID 
     
     context = {
         'po': po.get(), 'quo': quo, 

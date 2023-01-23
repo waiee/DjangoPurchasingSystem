@@ -134,6 +134,7 @@
 <div class="centre">
     <div>
         <form class="margintop" action='approvePo' method='POST'>
+            {% csrf_token %} 
             <button type="submit" class="approve">Approve</button><br />
         </form>
     
