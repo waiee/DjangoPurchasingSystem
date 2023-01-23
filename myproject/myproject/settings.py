@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'app',
     'additem',
     'viewPurchaseOrder',
+    'arPurchaseOrder',
 ]
 
 MIDDLEWARE = [
