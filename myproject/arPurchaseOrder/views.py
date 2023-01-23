@@ -117,7 +117,7 @@ def arbacktoHome(request):
                 'year': datetime.now().year,
             }
         )
-def arabacktoList(request):
+def arbacktoList(request):
     """Renders the home page."""
     assert isinstance(request, HttpRequest)
     if request.user.is_authenticated:

@@ -84,7 +84,7 @@ tr > td:first-child {
     <br/>
     <h2 style="text-align: center;"> <strong>Purchase Order List</strong></h2>
     <br/>
-  <form class="margintop" action = 'searchPo' method='POST'>
+  <form class="margintop" action = 'arsearchPo' method='POST'>
     {% csrf_token %} 
     <input type="text" placeholder="Search here..." aria-label="Search here.." name = "searched")>
     <button class="btn btn-info">Search</button>
@@ -186,7 +186,7 @@ tr > td:first-child {
 
 
 <br>
-<form class="margintop" action='backtoHome' method='GET'>
+<form class="margintop" action='arbacktoHome' method='GET'>
   <button type="submit" class="button">Back</button><br />
 </form>
 {% endblock %}
