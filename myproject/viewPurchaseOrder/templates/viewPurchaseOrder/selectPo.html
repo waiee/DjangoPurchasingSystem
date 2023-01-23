@@ -75,6 +75,9 @@
     .centre{
         text-align: center;
     }
+    .inline{
+        display: inline-block
+    }
 
 </style>
 <div>
@@ -132,7 +135,7 @@
 
 <br>
 <div class="centre">
-    <div>
+    <div class="inline">
         <form class="margintop" action='approvePo' method='POST'>
             {% csrf_token %} 
             <button type="submit" name="purchaseOrder" value="{{po.purchaseOrderID}}" class="approve">Approve</button><br />
