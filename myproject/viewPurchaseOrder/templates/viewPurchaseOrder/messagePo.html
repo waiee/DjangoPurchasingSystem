@@ -2,8 +2,32 @@
 
 {% block content %}
 
+<style>
+     .button{
+            padding : 10px 20px;
+            margin : 5px 2px;
+            display: inline-block;
+            width: 150px;
+            border: none;
+            border-radius: 12px;
+            background-color:#00ADB5;
+            color: white;
+            
+    
+    }
+    
+    button:hover{
+        background-color: #367e81;
+    }
+</style>
+
+
 <body>
     <h2>This is message HTML</h2>
+    <br>
+    <form class="margintop" action='backtoHome' method='GET'>
+        <button type="submit" class="button">Back</button><br />
+    </form>
 </body>
 
 {% endblock %}
