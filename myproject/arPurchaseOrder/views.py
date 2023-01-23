@@ -17,7 +17,7 @@ def viewPo(request):
         'year':datetime.now().year,
         'po_list': po_list,
     }
-    return render(request, 'arPurchaseOrder/viewPo.html', context)
+    return render(request, 'viewPurchaseOrder/viewPo.html', context)
 
 def selectPo(request):
     data = PurchaseOrder.objects.filter()
@@ -44,7 +44,7 @@ def selectPo(request):
         'poStatus':poStatus, 'totalPrice': totalPrice,
     }
 
-    return render(request,'arPurchaseOrder/selectPo.html', context)
+    return render(request,'viewPurchaseOrder/selectPo.html', context)
 
 def approvePo(request):
     #DATA BEFORE
