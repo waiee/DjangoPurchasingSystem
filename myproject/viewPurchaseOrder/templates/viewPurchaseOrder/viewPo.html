@@ -103,7 +103,7 @@ tr > td:first-child {
 </thead>
 
     {% for po in po_list %}
-    <!-- {%if po.poStatus == 'Approved' %} -->
+        {%if po.poStatus == 'Pending' %}
         <tr>
             <td>{{po}}</td>
             <td>{{po.purchaseOrderID}}</td>
@@ -116,10 +116,39 @@ tr > td:first-child {
                 </form>
             </td>
         </tr>
-    <!-- {%endif%} -->
+        {%endif%}
     {% endfor %}
 </table>
 </div>
+
+<div>
+    <table>
+    <thead>
+        <th>No.</th>
+        <th>Purchase Order ID</th>
+        <th>Staff ID</th>
+        <th>Status</th>
+        <th>Selection</th>
+    </thead>
+    
+        {% for po in po_list %}
+            {%if po.poStatus == 'Approved' %}
+            <tr>
+                <td>{{po}}</td>
+                <td>{{po.purchaseOrderID}}</td>
+                <td>{{po.staffID}}</td>
+                <td>{{po.poStatus}}</td>
+                <td>
+                    <form class="margintop" action='selectPo' method='POST'>
+                        {% csrf_token %} 
+                        <button type="submit" name={{po.purchaseOrderID}} value={{po.purchaseOrderID}}  class="btn btn-info">Select</button><br />
+                    </form>
+                </td>
+            </tr>
+            {%endif%}
+        {% endfor %}
+    </table>
+    </div>
 
 <br>
 <form class="margintop" action='backtoHome' method='GET'>
