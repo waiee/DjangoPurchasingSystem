@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
-from app.models import Item
+from app.models import Item, Quotation
 
 # Create your views here.
 
@@ -21,7 +21,7 @@ def additemconfirmation(request):
     newtotalPrice= request.POST['totalPrice']
     newstaffID = request.POST['staffID']
 
-    newQuotation = Item(quotationID = newquotationID,totalPrice = newtotalPrice, staffID=newstaffID)
+    newQuotation = Quotation(quotationID = newquotationID,totalPrice = newtotalPrice, staffID=newstaffID)
     newQuotation.save()
 
     context = {
