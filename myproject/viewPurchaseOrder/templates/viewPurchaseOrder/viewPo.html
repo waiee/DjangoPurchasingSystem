@@ -102,22 +102,22 @@ tr > td:first-child {
     <th>Selection</th>
 </thead>
 
-{% for po in po_list %}
+    {% for po in po_list %}
     <!-- {%if po.poStatus == 'Approved' %} -->
-    <tr>
-        <td>{{po}}</td>
-        <td>{{po.purchaseOrderID}}</td>
-        <td>{{po.staffID}}</td>
-        <td>{{po.poStatus}}</td>
-        <td>
-            <form class="margintop" action='selectPo' method='POST'>
-                {% csrf_token %} 
-                <button type="submit" name={{po.purchaseOrderID}} value={{po.purchaseOrderID}}  class="btn btn-info">Select</button><br />
-            </form>
-        </td>
-    </tr>
+        <tr>
+            <td>{{po}}</td>
+            <td>{{po.purchaseOrderID}}</td>
+            <td>{{po.staffID}}</td>
+            <td>{{po.poStatus}}</td>
+            <td>
+                <form class="margintop" action='selectPo' method='POST'>
+                    {% csrf_token %} 
+                    <button type="submit" name={{po.purchaseOrderID}} value={{po.purchaseOrderID}}  class="btn btn-info">Select</button><br />
+                </form>
+            </td>
+        </tr>
     <!-- {%endif%} -->
-{% endfor %}
+    {% endfor %}
 </table>
 </div>
 
