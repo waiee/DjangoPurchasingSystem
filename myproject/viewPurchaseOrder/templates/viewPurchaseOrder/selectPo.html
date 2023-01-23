@@ -51,32 +51,25 @@
     .approve{
         padding : 10px 20px;
         margin : 5px 2px;
-        display: inline-block;
         width: 150px;
         border: none;
         border-radius: 12px;
         background-color:#3E9C4D;
         color: white;
-        display: inline-block;
     }
 
     .reject{
         padding : 10px 20px;
         margin : 5px 2px;
-        display: inline-block;
         width: 150px;
         border: none;
         border-radius: 12px;
         background-color:#8F3F3F;
         color: white;
-        display: inline-block;
     }
 
     .centre{
         text-align: center;
-    }
-    .inline{
-        display: inline-block
     }
 
 </style>
@@ -135,13 +128,13 @@
 
 <br>
 <div class="centre">
-    <div class="inline">
-        <form class="margintop" action='approvePo' method='POST'>
+    <div>
+        <form style="display: inline-block" class="margintop" action='approvePo' method='POST'>
             {% csrf_token %} 
             <button type="submit" name="purchaseOrder" value="{{po.purchaseOrderID}}" class="approve">Approve</button><br />
         </form>
     
-        <form class="margintop" action='rejectPo' method='POST'>
+        <form style="display: inline-block" class="margintop" action='rejectPo' method='POST'>
             {% csrf_token %} 
             <button type="submit" name="purchaseOrder" value="{{po.purchaseOrderID}}" class="reject">Reject</button><br />
         </form>
