@@ -67,6 +67,27 @@ def approvePo(request):
     }
     return render(request, 'viewPurchaseOrder/messagePo.html', context)
 
+def rejectPo(request):
+    #DATA BEFORE
+    # dataP = PurchaseOrder.objects.filter(poStatus__in=['Pending']).values()
+    # dataAp = PurchaseOrder.objects.filter(poStatus__in=['Approved']).values()
+    # print(dataP)
+    # print(dataAp)
+
+    #GET SELECTED PO
+    currentPo = PurchaseOrder.objects.filter(purchaseOrderID=request.POST.get("purchaseOrder"))
+    print(currentPo)
+    currentPo.update(poStatus='Rejected')
+
+    #DATA AFTER
+    # print(dataP)
+    # print(dataAp)
+
+    context = {
+        'currentPo':currentPo         
+    }
+    return render(request, 'viewPurchaseOrder/messagePo.html', context)
+
 ##############################################################################################
 def searchPo(request):
     if request.method == "POST":
