@@ -32,9 +32,10 @@ def selectPo(request):
             vendorID = po.get().vendorID
             poStatus = po.get().poStatus
             totalPrice = po.get().totalPrice
+            print(poStatus)
     
     quo = po.get().quotationID 
-    
+
     context = {
         'po': po.get(), 'quo': quo, 
         'products': products, 
