@@ -17,18 +17,17 @@ def additemform(request):
 
 def additemconfirmation(request):
 
-    newitem_id = request.POST['item_id']
-    newitem_name= request.POST['item_name']
-    newitem_description = request.POST['item_description']
+    newquotationID= request.POST['quotationID']
+    newtotalPrice= request.POST['totalPrice']
+    newstaffID = request.POST['staffID']
 
-    newitem = Item(item_id = newitem_id,item_name = newitem_name, item_description =
-    newitem_description)
-    newitem.save()
+    newQuotation = Item(quotationID = newquotationID,totalPrice = newtotalPrice, staffID=newstaffID)
+    newQuotation.save()
 
     context = {
-        'item_id': newitem_id,
-        'item_name': newitem_name,
-        'item_description': newitem_description,
+        'quotationID': newquotationID,
+        'totalPrice': newtotalPrice,
+        'staffID': newstaffID,
     }
     return render(request,'additem/additemconfirmation.html',context)
 

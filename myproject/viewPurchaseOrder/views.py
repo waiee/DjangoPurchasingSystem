@@ -46,13 +46,13 @@ def selectPo(request):
     return render(request,'viewPurchaseOrder/selectPo.html', context)
 
 def approvePo(request):
-    currentPo = PurchaseOrder.objects.filter(purchaseOrderID=request.POST.get("PurchaseOrder"))
-
-    if currentPo.poStatus == 'Pending':
-        currentPo.poStatus = 'Approved'
-    else:
-        return render(request, 'viewPurchaseOrder/messagePo.html')
-    currentPo.save()
+    currentPo = PurchaseOrder.objects.get(purchaseOrderID=request.POST.get("PurchaseOrder"))
+    currentPo.poStatus = "Approved"
+    # if currentPo.poStatus == 'Pending':
+    #     currentPo.poStatus = 'Approved'
+    # else:
+    #     return render(request, 'viewPurchaseOrder/messagePo.html')
+    currentPo.update()
     
     context = {
         'currentPo':currentPo,           
