@@ -9,7 +9,7 @@ from app.models import PurchaseOrder, PurchaseOrderProduct, Staff
 from django.http import HttpRequest
 
 @login_required
-def arviewPo(request):
+def viewPo(request):
     po_list = PurchaseOrder.objects.filter(selected=True).only('purchaseOrderID', 'staffID', 'poStatus')
 
     context = {
@@ -19,7 +19,7 @@ def arviewPo(request):
     }
     return render(request, 'arPurchaseOrder/viewPo.html', context)
 
-def arselectPo(request):
+def selectPo(request):
     data = PurchaseOrder.objects.filter()
     po = None
 
@@ -46,7 +46,7 @@ def arselectPo(request):
 
     return render(request,'arPurchaseOrder/selectPo.html', context)
 
-def arapprovePo(request):
+def approvePo(request):
     #DATA BEFORE
     # dataP = PurchaseOrder.objects.filter(poStatus__in=['Pending']).values()
     # dataAp = PurchaseOrder.objects.filter(poStatus__in=['Approved']).values()
@@ -65,9 +65,9 @@ def arapprovePo(request):
     context = {
         'currentPo':currentPo         
     }
-    return render(request, 'arPurchaseOrder/messagePo.html', context)
+    return render(request, 'viewPurchaseOrder/messagePo.html', context)
 
-def arrejectPo(request):
+def rejectPo(request):
     #DATA BEFORE
     # dataP = PurchaseOrder.objects.filter(poStatus__in=['Pending']).values()
     # dataAp = PurchaseOrder.objects.filter(poStatus__in=['Approved']).values()
@@ -86,10 +86,10 @@ def arrejectPo(request):
     context = {
         'currentPo':currentPo         
     }
-    return render(request, 'arPurchaseOrder/messagePo.html', context)
+    return render(request, 'viewPurchaseOrder/messagePo.html', context)
 
 ##############################################################################################
-def arsearchPo(request):
+def searchPo(request):
     if request.method == "POST":
         searched = request.POST['searched']
         purchaseOrderID = PurchaseOrder.objects.filter(purchaseOrderID__contains=searched)
@@ -99,11 +99,11 @@ def arsearchPo(request):
                 'purchaseOrderID' : purchaseOrderID,
             }
 
-        return render(request,'arPurchaseOrder/searchPo.html',context)
+        return render(request,'viewPurchaseOrder/searchPo.html',context)
     else:
-        return render(request, 'arPurchaseOrder/searchPo.html',context)
+        return render(request, 'viewPurchaseOrder/searchPo.html',context)
 
-def arbacktoHome(request):
+def backtoHome(request):
     """Renders the home page."""
     assert isinstance(request, HttpRequest)
     if request.user.is_authenticated:
@@ -117,14 +117,14 @@ def arbacktoHome(request):
                 'year': datetime.now().year,
             }
         )
-def arbacktoList(request):
+def backtoList(request):
     """Renders the home page."""
     assert isinstance(request, HttpRequest)
     if request.user.is_authenticated:
         return(redirect('/viewPo/'))
     return render(
             request,
-            'arPurchaseOrder/viewPo.html',
+            'viewPurchaseOrder/viewPo.html',
             {
                 'title':'Purchase Order List',
                 'year': datetime.now().year,
