@@ -129,12 +129,12 @@
 <br>
 <div class="centre">
     <div>
-        <form style="display: inline-block" class="margintop" action='approvePo' method='POST'>
+        <form style="display: inline-block" class="margintop" action='arapprovePo' method='POST'>
             {% csrf_token %} 
             <button type="submit" name="purchaseOrder" value="{{po.purchaseOrderID}}" class="approve">Approve</button><br />
         </form>
     
-        <form style="display: inline-block" class="margintop" action='rejectPo' method='POST'>
+        <form style="display: inline-block" class="margintop" action='arrejectPo' method='POST'>
             {% csrf_token %} 
             <button type="submit" name="purchaseOrder" value="{{po.purchaseOrderID}}" class="reject">Reject</button><br />
         </form>

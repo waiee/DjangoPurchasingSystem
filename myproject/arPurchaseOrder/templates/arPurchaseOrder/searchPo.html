@@ -31,16 +31,43 @@
    tr > td:first-child {
        min-width: 240px;
    }
-   .button{
+   
+   .search{
+       float:right;
+   }
+   
+   .input[type=text]{
+       float: right;
+       padding: 6px;
+       margin-top: 8px;
+       margin-right: 16px;
+       border: 1px solid;
+       font-size:17px;
+   
+    }
+    search button{
+       float: right;
+       padding: 6px 10px;
+       margin-top: 8px;
+       margin-right: 16px;
+       background: #ddd;
+       font-size: 17px;
+       border: none;
+       cursor: pointer;
+    }
+   
+    .search button:hover{
+       background: #ccc;
+    }
+    .button{
             padding : 10px 20px;
             margin : 5px 2px;
             display: inline-block;
-            width: 180px;
+            width: 150px;
             border: none;
             border-radius: 12px;
             background-color:#00ADB5;
             color: white;
-            display: inline-block;
             
     
     }
@@ -48,101 +75,56 @@
     button:hover{
         background-color: #367e81;
     }
-    .approve{
-        padding : 13px 15px;
-        margin : 5px 2px;
-        width: 230px;
-        border: none;
-        border-radius: 12px;
-        background-color:#3E9C4D;
-        color: white;
-    }
-
-    .reject{
-        padding : 13px 15px;
-        margin : 5px 2px;
-        width: 230px;
-        border: none;
-        border-radius: 12px;
-        background-color:#8F3F3F;
-        color: white;
-    }
-
-    .centre{
-        text-align: center;
-    }
-
 </style>
+
 <div>
     <br/>
-    <h2 style="text-align: center;" ><strong> Purchase Order #{{po}}</strong></h2>
+    <h2 style="text-align: center;" ><strong> Purchase Order Details </strong></h2>
     <br/>
-  <!-- <form class="margintop" action = 'searchPo' method='POST'>
+  <form class="margintop" action = 'arsearchPo' method='POST'>
     {% csrf_token %} 
     <input type="text" placeholder="Search here..." aria-label="Search here.." name = "searched")>
     <button class="btn btn-info">Search</button>
-    </form> -->
-<table>
-    <br/>
-    <thead>
-        <th>Product ID</th>
-        <th>Name</th>
-        <th>Price per unit (RM)</th>
-        <th>Quantity Provided</th>
-        <th>Total Price (RM)</th>
-    </thead>
-        {%for pro in products%}
-            <tr>
-                <td>{{pro.productID}}</td>
-                <td>{{pro.productName}}</td>
-                <td>RM{{pro.productPriceperUnit}}</td>
-                <td>{{qtyProvided}}</td>
-                <td>RM{{totalPrice}}</td>
-            </tr>
-        {% endfor %}
-    <br/>
-</table>
-</div>
+    </form>
 
-<div>
-    <br/>
-    <table>
+<table>
+{% if searched %}
+    {% if purchaseOrderID %}
+        <em>You searched for {{searched}}</em>
         <br/>
         <thead>
+            <th>No.</th>
+            <th>Purchase Order ID</th>
             <th>Staff ID</th>
-            <th>Vendor ID</th>
-            <th>Validity Date</th>
             <th>Status</th>
-            <th>Final Total Price</th>
+            <th>Selection</th>
         </thead>
-            <tr>
-                <td>{{staffID}}</td>
-                <td>{{vendorID}}</td>
-                <td>-</td>
-                <td>{{poStatus}}</td>
-                <td>RM{{totalPrice}}</td>
-            </tr>
-        <br/>
-    </table>
+            {% for po in purchaseOrderID %}
+                <tr>
+                    <td>{{po}}</td>
+                    <td>{{po.purchaseOrderID}}</td>
+                    <td>{{po.staffID}}</td>
+                    <td>{{po.poStatus}}</td>
+                    <td>
+                        <form class="margintop" action='arselectPo' method='POST'>
+                            {% csrf_token %} 
+                            <button type="submit" name={{po.purchaseOrderID}} value={{po.purchaseOrderID}}  class="btn btn-info">Select</button><br />
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <p style="color:red"><em>ID "{{searched}}"" not found, Please try again</em></p>
+        {% endif %}
+{% else %}
+    <p style="color:red"><em>Please enter an ID to search</em></p>
+    <br/>
+{% endif %}
 </div>
+</table>
 
 <br>
-<div class="centre">
-    <div>
-        <form style="display: inline-block" class="margintop" action='approvePo' method='POST'>
-            {% csrf_token %} 
-            <button type="submit" name="purchaseOrder" value="{{po.purchaseOrderID}}" class="approve">Approve</button><br />
-        </form>
-    
-        <form style="display: inline-block" class="margintop" action='rejectPo' method='POST'>
-            {% csrf_token %} 
-            <button type="submit" name="purchaseOrder" value="{{po.purchaseOrderID}}" class="reject">Reject</button><br />
-        </form>
-    </div> 
-    <div>
-        <form class="margintop" action='backtoList' method='GET'>
-            <button type="submit" class="button">Back</button><br />
-        </form>
-    </div>
-</div>
+<form class="margintop" action='backtoHome' method='GET'>
+  <button type="submit" class="button">Back</button><br />
+</form>
 {% endblock %}

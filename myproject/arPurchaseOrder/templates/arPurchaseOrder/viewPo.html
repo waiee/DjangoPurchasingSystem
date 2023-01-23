@@ -111,7 +111,7 @@ tr > td:first-child {
             <td>{{po.staffID}}</td>
             <td>{{po.poStatus}}</td>
             <td>
-                <form class="margintop" action='selectPo' method='POST'>
+                <form class="margintop" action='arselectPo' method='POST'>
                     {% csrf_token %} 
                     <button type="submit" name={{po.purchaseOrderID}} value={{po.purchaseOrderID}}  class="btn btn-info">Select</button><br />
                 </form>
@@ -142,7 +142,7 @@ tr > td:first-child {
                 <td>{{po.staffID}}</td>
                 <td>{{po.poStatus}}</td>
                 <td>
-                    <form class="margintop" action='selectPo' method='POST'>
+                    <form class="margintop" action='arselectPo' method='POST'>
                         {% csrf_token %} 
                         <button type="submit" name={{po.purchaseOrderID}} value={{po.purchaseOrderID}}  class="btn btn-info">Select</button><br />
                     </form>
@@ -173,7 +173,7 @@ tr > td:first-child {
                 <td>{{po.staffID}}</td>
                 <td>{{po.poStatus}}</td>
                 <td>
-                    <form class="margintop" action='selectPo' method='POST'>
+                    <form class="margintop" action='arselectPo' method='POST'>
                         {% csrf_token %} 
                         <button type="submit" name={{po.purchaseOrderID}} value={{po.purchaseOrderID}}  class="btn btn-info">Select</button><br />
                     </form>
