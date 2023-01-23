@@ -31,40 +31,30 @@
     {% endif %}
 
     <!-- <br /> -->
-    <table>
     {% if is_employee %}
-        <tr><td>
     <form class="margintop" action='additemform' method='GET'>
         <button type="submit" class="btn btn-info">Add Item</button><br />
     </form>
-            </td></tr>
             
-        <tr><td>
     <form class="margintop" action='module2' method='GET'>
         <button type="submit" class="btn btn-outline-info waves-effect">Module 2</button><br />
     </form>
-        </td></tr>
+        
+    
 
     {% elif is_manager %}
         {% include "app/layoutManager.html" %}         
-        <tr><td>
     <form class="margintop" action='viewPo' method='GET'>
         <button style="display: inline-block" type="submit" class="button">View Purchase Order</button><br />
     </form>
-        </td></tr>
-            
-        <tr><td>
+        <br>
     <form class="margintop" action='viewPo' method='GET'>
         <button style="display: inline-block" type="submit" class="button">Approve/Reject Purchase Order</button><br />
     </form>
-        </td></tr>
                       
     {% else %}            
-        <tr><td>
             <p>Undefined User.</p>
-        </td></tr>
     {% endif %}            
-    </table>
 </div>
 
 {% endblock %}
