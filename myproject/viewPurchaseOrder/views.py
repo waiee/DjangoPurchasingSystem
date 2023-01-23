@@ -47,11 +47,15 @@ def selectPo(request):
     return render(request,'viewPurchaseOrder/selectPo.html', context)
 
 def approvePo(request):
-    currentPo = PurchaseOrder.objects.filter(purchaseOrderID=request.POST.get("PurchaseOrder"))
-    currentPo.poStatus = "Approved"
-    print(currentPo)
+    data = PurchaseOrder.objects.filter()
+    currentPo = None
 
-    currentPo.update()
+    for i in data:
+        if i.purchaseOrderID in request.POST:
+            currentPo = PurchaseOrder.objects.filter(purchaseOrderID=i.purchaseOrderID)
+            currentPo.poStatus = "Approved"
+            currentPo.update()
+            print(currentPo.poStatus)
 
     context = {
         'currentPo':currentPo         
