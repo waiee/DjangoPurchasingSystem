@@ -103,7 +103,7 @@ tr > td:first-child {
 </thead>
 
 {% for po in po_list %}
-{%if po.poStatus == 'Pending' %}
+<!-- {%if po.poStatus == 'Pending' %} -->
     <tr>
         <td>{{po}}</td>
         <td>{{po.purchaseOrderID}}</td>
@@ -116,7 +116,7 @@ tr > td:first-child {
             </form>
         </td>
     </tr>
-    {%endif%}
+    <!-- {%endif%} -->
 {% endfor %}
 </table>
 </div>
