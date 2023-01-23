@@ -51,7 +51,6 @@ def approvePo(request):
 
     if poStatus == 'Pending':
         poStatus = 'Approved'
-    
     currentPo.update()
     
     context = {
