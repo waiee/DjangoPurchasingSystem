@@ -30,7 +30,7 @@ def selectPo(request):
             products = PurchaseOrderProduct.objects.filter(purchaseOrderID=i.purchaseOrderID, productPurchased=True)
             qtyNeeded = po.get().qtyNeeded
 
-            totalProducts = qtyNeeded * po.get().productID.productPriceperUnit
+            totalProducts = qtyNeeded * products.productPriceperUnit
 
             qtyProvided = po.get().qtyProvided
             staffID = po.get().staffID
