@@ -42,7 +42,7 @@ def about(request):
         request,
         'app/about.html',
         {
-            'title':'ABC System',
+            'title':'Purchasing System',
             'message':'This application processes ...',
             'year':datetime.now().year,
         }
