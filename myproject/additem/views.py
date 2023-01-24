@@ -33,8 +33,7 @@ def additemconfirmation(request):
         'quotationID': newquotationID, 'staffID': newstaffID,
         'vendorID': newvendorID, 'totalPrice': newtotalPrice,
         'validityDate': newvalidityDate, 'qtyProvided': newqtyProvided,
-        'totalPrice': newtotalPrice,
-           
+        'totalPrice': newtotalPrice,    
     }
     return render(request,'additem/additemconfirmation.html',context)
 

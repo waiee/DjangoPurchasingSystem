@@ -23,7 +23,7 @@ def selectPo(request):
     data = PurchaseOrder.objects.filter()
     po = None
 
-    for i in data:
+    for i in data: 
         if i.purchaseOrderID in request.POST:
             po = PurchaseOrder.objects.filter(purchaseOrderID=i.purchaseOrderID)
             products = PurchaseOrderProduct.objects.filter(purchaseOrderID=i.purchaseOrderID, productPurchased=True)
@@ -130,3 +130,5 @@ def backtoList(request):
             }
         )
 
+
+# FUNCTION
