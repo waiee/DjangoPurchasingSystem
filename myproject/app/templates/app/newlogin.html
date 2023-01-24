@@ -1,204 +1,97 @@
-{% extends "app/layout.html" %}
-{% block content %}
-
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Submit Quotation</title>
+<html>
 
-    <style>
-        body{
-            background-color: #EEEEEE; 
-        }
-
-input,
-        select {
-            width: 250px;
-            height: 30px;
-            margin: 2px;
-            -moz-box-sizing: border-box;
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-        }
-
-        label {
-        display: inline-block;
-        width: 200px;
-        text-align: left;
-        font-family: Arial;
+<style>
+body {
+    background-color: #EEEEEE;
     
-      }
+    }
 
-      input{
-        font-family:Arial;
-        text-align: center;
-        font-size: 15px;
-        font-weight: bold;
-      }
+.welcome{
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: bold;
+    text-align: center;
+    }
 
-      button {
-			color: #ffffff;
-			font-size: 19px;
-			border: 1px solid #ffffff;
-			border-radius: 10px;
-			padding: 15px 50px;
-			cursor: pointer
-		}
-		button:hover {
-			color: #000000;
-			background-color: #EEEEEE;
-        }
-        
-        table{
-            display: inline-table;
-            padding: 0px;
-            border-collapse: collapse;
-            width: 50%;
-            height: 100px;
-            gap: 1px;
-        }
+.staffid{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size:25px;
+}
 
-        td{
-            border: 1px solid #EEEEEE;
-            text-align: center;
-            padding: 8px;
-            background-color: #393E46;
-            color: #EEEEEE;
-        }
+.password{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size:25px;
+}
 
-        th{
-            border: 1px solid #EEEEEE;
-            text-align: center;
-            padding: 8px;
-            background-color: #00ADB5;
-            color: #EEEEEE;
-        }
-    </style>
-<br><br>
-<center>
-<legend style="padding: 10px;text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-font-weight: 600;font-style: normal;font-family: Arial;margin: 0px;
-font-size: 40px;">New Quotation</legend>
-</center>
-</head>
+input[type=text]{
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 1;
+    box-sizing: border-box;
+    background-color: #94979C;
+    color: #ECECEC;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+input[type=password]{
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 1;
+    box-sizing: border-box;
+    background-color: #94979C;
+    color: #ECECEC;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.button{
+    text-align: center;
+    background-color: #00ADB5;
+    padding: 10px 75px;
+    font-size: 13px;
+    color:white;
+    font-size: 16px; 
+    border-radius: 10px; 
+}
+
+.center{
+    text-align: center; 
+}
+</style>
+
+
+<head>
+    <link rel="stylesheet" href="try.css"/>
+    </head>
+<body>
+   <div class = "welcome">
+    <h1>Welcome to Purchasing System.</h1>
+   </div>  
+</body><br><br><br>
 
 <body>
-
-    <div>
-    <center>    
-       <h3>
-        <form action="submitQuotation" method="POST">
-            {% csrf_token %}
-                <br><br>
-                <label class="label2">Quotation ID   </label><input id="quotationID" name="quotationID" type="text" 
-                style ="background-color: #94979C;
-                color: #ECECEC; border-radius: 5px;">
-                <br><br>
-                <!-- <label class="label2">Staff ID   </label><input id="staffID" name="staffID" type="text" 
-                        style ="background-color: #94979C;
-                        color: #ECECEC; border-radius: 5px;"> -->
-                
-                <label >Staff ID </label> <select name="staffID" id="staffID">
-                    {% for i in staffList %}
-                    <option value="{{i.staffID}}" selected="selected" style="background-color: #94979C;
-                    color: #ECECEC; border-radius: 5px;">{{ i.staffID }}</option>
-                    {% endfor %}
-                </select>
-                
-                <br><br>
-                <!-- <label class="label1">Vendor ID   </label><input id="vendorID" name="vendorID" type="text" 
-                        style ="background-color: #94979C;
-                            color: #ECECEC; border-radius: 5px;"> -->
-
-                <label >Vendor ID </label> <select name="vendorID" id="vendorID">
-                    {% for i in vendorList %}
-                    <option value="{{i.vendorID}}" selected="selected" style="background-color: #94979C;
-                    color: #ECECEC; border-radius: 5px;">{{ i.vendorID }}</option>
-                    {% endfor %}
-                </select>
-                <br><br>
-                <label class="label3">Quantity   </label><input name="quantityProvided" type="number" 
-                        style ="background-color: #94979C;
-                            color: #ECECEC; border-radius: 5px; ">
-                <!-- <br><br>
-                <label class="label4">Price Per Unit RM   </label><input name="itemPriceperUnit" type="text" 
-                        style ="background-color: #94979C;
-                            color: #ECECEC; border-radius: 5px;"> -->
-                <br><br>
-                <label class="label5">Validity Date   </label><input name="validityDate" type="date" 
-                        style ="background-color: #94979C;
-                            color: #ECECEC; border-radius: 5px;">
-                <br><br>
-                <label class="label7">Total Price RM   </label><input name="totalPrice" type="number" 
-                        style ="background-color: #94979C;
-                            color: #ECECEC; border-radius: 5px;">
-                <br><br><br>
-                <div class="center">
-                    <button type = "button" class="button" 
-                    style="width:300px;height:50px;text-align:center;background-color: #8F3F3F" >
-                    Cancel
-                </button>
-                <button type = "submit" class="button"
-                style="width:300px;height:50px;text-align:center;background-color: #3E9C4D">
-                    Submit
-                </button>
-              </div>
-        </form>
-        </h3>
-    </div>
-    <div>
-        <form action='addQuotationItem' method="post" >
-            {% csrf_token %}
-            <br></br>
-            <label>Item ID </label><input id="itemID" name="itemID" type="text" 
-            style ="background-color: #94979C;
-            color: #ECECEC; border-radius: 5px;">
-            <br></br>
-            <label >Vendor ID </label> <select name="vendorID" id="vendorID">
-                {% for i in vendorList %}
-                <option value="{{i.vendorID}}" selected="selected" style="background-color: #94979C;
-                color: #ECECEC; border-radius: 5px;">{{ i.vendorID }}</option>
-                {% endfor %}
-            </select>
-            <br></br>
-            <label>Item Name </label><input id="itemName" name="itemName" type="text" 
-            style ="background-color: #94979C;
-            color: #ECECEC; border-radius: 5px;">
-            <br></br>
-            <label>Price per Unit </label><input id="itemPriceperUnit" name="itemPriceperUnit" type="number" 
-            style ="background-color: #94979C;
-            color: #ECECEC; border-radius: 5px;">
-            <br></br>
-            <div class="center">
-                <button type="submit" class="button"
-                style="width:300px;height:50px;text-align:center;background-color: #3E9C4D">
-                Add Item
-            </button>
+    <div class ="staffid">
+        <label for="Staff ID">Staff ID</label><br><br>
+        <input type="text" id="input">
+    </div><br><br><br>
+    <div class ="password">
+        <label for="Password">Password</label><br><br>
+            <div class = "passwordbox" >
+                <input type="password" id="input">
             </div>
-        </form>
-        <br><br>
-        <table>
-            <tr>
-                <th>Item ID</th>
-                <th>Vendor ID</th>
-                <th>Item</th>
-                <th>Price per unit(RM)</th>
-            </tr>
-            {% for i in quoItemList %}
-            <tr>
-                <td>{{i.itemID}}</td>
-                <td>{{i.vendorID}}</td>
-                <td>{{i.itemName}}</td>
-                <td>{{i.itemPriceperUnit}}</td>
-            </tr>
-            {% endfor %}
-        </table>
-    </div>
-</center> 
-
+    </div><br><br><br>
+      <div class="center">
+      <button type = "button" class="button" onclick =
+      "alert('Welcome to Purchase Order System.')">
+      Login
+  </button>
+</div>
 </body>
-
-{% endblock %}
+</html>
