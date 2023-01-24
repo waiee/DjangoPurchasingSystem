@@ -11,19 +11,19 @@
 
 <h2>{{ title }}</h2>
 <div class="row">
-    <div class="col-md-8">
+    <!-- <div class="col-md-8"> -->
         <section id="loginForm">
             <form action="." method="post" class="form-horizontal">
                 {% csrf_token %}
-                <h1 style="text-align: center;"> <strong>Welcome to Purchasing System.</strong></h1>
+                <h1> <strong>Welcome to Purchasing System.</strong></h1>
                 <hr />
                 <div class="form-group">
-                    <label style="text-align: center;" for="id_username" class="col-md-2 control-label">User name</label>
-                    <div style="text-align: center;" class="col-md-10">
+                    <label for="id_username" class="col-md-2 control-label">User name</label>
+                    <div class="col-md-10">
                         {{ form.username }}
                     </div>
                 </div>
-                <div style="text-align: center;" class="form-group">
+                <div class="form-group">
                     <label for="id_password" class="col-md-2 control-label">Password</label>
                     <div class="col-md-10">
                         {{ form.password }}
@@ -40,7 +40,7 @@
                 {% endif %}
             </form>
         </section>
-    </div>
+    <!-- </div> -->
     <div class="col-md-4">
         <section id="socialLoginForm"></section>
     </div>
