@@ -10,20 +10,20 @@
 </style>
 
 <h2>{{ title }}</h2>
-<div class="row">
+<div style="text-align: center" class="row">
     <!-- <div class="col-md-8"> -->
-        <section class="center" id="loginForm">
+        <section id="loginForm">
             <form action="." method="post" class="form-horizontal">
                 {% csrf_token %}
                 <h1> <strong>Welcome to Purchasing System.</strong></h1>
                 <hr />
-                <div style="text-align: center;" class="form-group">
+                <div class="form-group">
                     <label for="id_username" class="col-md-2 control-label">User name</label>
                     <div class="col-md-10">
                         {{ form.username }}
                     </div>
                 </div>
-                <div style="text-align: center;" class="form-group">
+                <div class="form-group">
                     <label for="id_password" class="col-md-2 control-label">Password</label>
                     <div class="col-md-10">
                         {{ form.password }}
