@@ -95,6 +95,7 @@
         <th>Name</th>
         <th>Price per unit (RM)</th>
         <th>Quantity Provided</th>
+        <th>Quantity Needed</th>
         <th>Total Price (RM)</th>
     </thead>
         {%for pro in products%}
@@ -103,6 +104,7 @@
                 <td>{{pro.productName}}</td>
                 <td>RM{{pro.productPriceperUnit}}</td>
                 <td>{{qtyProvided}}</td>
+                <td>{{qtyNeeded}}</td>
                 <td>RM{{totalPrice}}</td>
             </tr>
         {% endfor %}

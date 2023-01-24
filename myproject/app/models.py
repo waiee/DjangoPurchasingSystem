@@ -53,7 +53,6 @@ class QuotationItem(models.Model):
     quotationID = models.ForeignKey(Quotation, default=None, on_delete=models.CASCADE,null=True)
     vendorID = models.ForeignKey(Vendor,default=None, on_delete=models.CASCADE,null=True)
     itemName = models.TextField(max_length=40, null=True)
-    quantity = models.IntegerField(default=None, null=True)
     itemPriceperUnit = models.FloatField(default=None, null=True)
     itemPurchased = models.BooleanField(default=False)
     
@@ -79,7 +78,6 @@ class PurchaseOrderProduct(models.Model):
     purchaseOrderID = models.ForeignKey(PurchaseOrder, default=None, on_delete=models.CASCADE,null=True)
     vendorID = models.ForeignKey(Vendor,default=None, on_delete=models.CASCADE)
     productName = models.TextField(max_length=40, null=True)
-    quantity = models.IntegerField(null=True)
     productPriceperUnit = models.FloatField(default=None, null=True)
     productPurchased = models.BooleanField(default=False)
 
