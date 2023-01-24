@@ -1,53 +1,49 @@
-{% extends "app/layoutManager.html" %}
-
-{% block content %}
-
+{% extends "app/layoutManager.html" %} {% block content %}
 
 <style>
- table, th,td {
-    border:none;
+  table,
+  th,
+  td {
+    border: none;
     border-collapse: collapse;
     border-left: 1px solid white;
     border-right: 1px solid white;
     text-align: center;
-    padding:10px;
-} 
+    padding: 10px;
+  }
 
-th {
-    background-color: #00ADB5;
+  th {
+    background-color: #00adb5;
     color: white;
-    padding:15px;
-
-
-}
-tr{
-    border:1px solid;
+    padding: 15px;
+  }
+  tr {
+    border: 1px solid;
     border-color: white;
-    background-color: #393E46;
+    background-color: #393e46;
     color: white;
-}
-tr > td {
+  }
+  tr > td {
     min-width: 240px;
     /* border: 1px solid black; */
-}
-tr > td:first-child {
+  }
+  tr > td:first-child {
     min-width: 240px;
-}
+  }
 
-.search{
-    float:right;
-}
+  .search {
+    float: right;
+  }
 
-.input[type=text]{
+  .input[type="text"] {
     float: right;
     padding: 6px;
     margin-top: 8px;
     margin-right: 16px;
     border: 1px solid;
-    font-size:17px;
-
- }
- search button{
+    font-size: 17px;
+  }
+  search button {
     float: right;
     padding: 6px 10px;
     margin-top: 8px;
@@ -56,138 +52,156 @@ tr > td:first-child {
     font-size: 17px;
     border: none;
     cursor: pointer;
- }
+  }
 
- .search button:hover{
+  .search button:hover {
     background: #ccc;
- }
+  }
 
-    .button{
-            padding : 10px 20px;
-            margin : 5px 2px;
-            display: inline-block;
-            width: 150px;
-            border: none;
-            border-radius: 12px;
-            background-color:#00ADB5;
-            color: white;
-            
-    
-    }
-    
-    button:hover{
-        background-color: #367e81;
-    }
+  .button {
+    padding: 10px 20px;
+    margin: 5px 2px;
+    display: inline-block;
+    width: 150px;
+    border: none;
+    border-radius: 12px;
+    background-color: #00adb5;
+    color: white;
+  }
+
+  button:hover {
+    background-color: #367e81;
+  }
 </style>
 
 <div>
-    <br/>
-    <h2 style="text-align: center;"> <strong>Purchase Order List</strong></h2>
-    <br/>
-  <form class="margintop" action = 'searchPo' method='POST'>
-    {% csrf_token %} 
-    <input type="text" placeholder="Search here..." aria-label="Search here.." name = "searched")>
+  <br />
+  <h1 style="text-align: center"><strong>Purchase Order List</strong></h1>
+  <br />
+  <form class="margintop" action="searchPo" method="POST">
+    {% csrf_token %}
+    <input
+      type="text"
+      placeholder="Search here..."
+      aria-label="Search here.."
+      name="searched"
+      )
+    />
     <button class="btn btn-info">Search</button>
-    </form>
-    <br/>
+  </form>
+  <br />
 </div>
 
 <!-- PENDING -->
 <div>
-    <h1>Pending Table</h1>
-<table>
-<thead>
-    <th>No.</th>
-    <th>Purchase Order ID</th>
-    <th>Staff ID</th>
-    <th>Status</th>
-    <th>Selection</th>
-</thead>
+  <h1>Pending Table</h1>
+  <table>
+    <thead>
+      <th>No.</th>
+      <th>Purchase Order ID</th>
+      <th>Staff ID</th>
+      <th>Status</th>
+      <th>Selection</th>
+    </thead>
 
-    {% for po in po_list %}
-        {%if po.poStatus == 'Pending' %}
-        <tr>
-            <td>{{po}}</td>
-            <td>{{po.purchaseOrderID}}</td>
-            <td>{{po.staffID}}</td>
-            <td>{{po.poStatus}}</td>
-            <td>
-                <form class="margintop" action='selectPo' method='POST'>
-                    {% csrf_token %} 
-                    <button type="submit" name={{po.purchaseOrderID}} value={{po.purchaseOrderID}}  class="btn btn-info">Select</button><br />
-                </form>
-            </td>
-        </tr>
-        {%endif%}
-    {% endfor %}
-</table>
+    {% for po in po_list %} {%if po.poStatus == 'Pending' %}
+    <tr>
+      <td>{{po}}</td>
+      <td>{{po.purchaseOrderID}}</td>
+      <td>{{po.staffID}}</td>
+      <td>{{po.poStatus}}</td>
+      <td>
+        <form class="margintop" action="selectPo" method="POST">
+          {% csrf_token %}
+          <button
+            type="submit"
+            name="{{po.purchaseOrderID}}"
+            value="{{po.purchaseOrderID}}"
+            class="btn btn-info"
+          >
+            Select</button
+          ><br />
+        </form>
+      </td>
+    </tr>
+    {%endif%} {% endfor %}
+  </table>
 </div>
 
 <!-- APPROVED -->
 <div>
-    <h1>Approved Table</h1>
-    <table>
+  <h1>Approved Table</h1>
+  <table>
     <thead>
-        <th>No.</th>
-        <th>Purchase Order ID</th>
-        <th>Staff ID</th>
-        <th>Status</th>
-        <th>Selection</th>
+      <th>No.</th>
+      <th>Purchase Order ID</th>
+      <th>Staff ID</th>
+      <th>Status</th>
+      <th>Selection</th>
     </thead>
-    
-        {% for po in po_list %}
-            {%if po.poStatus == 'Approved' %}
-            <tr>
-                <td>{{po}}</td>
-                <td>{{po.purchaseOrderID}}</td>
-                <td>{{po.staffID}}</td>
-                <td>{{po.poStatus}}</td>
-                <td>
-                    <form class="margintop" action='selectPo' method='POST'>
-                        {% csrf_token %} 
-                        <button type="submit" name={{po.purchaseOrderID}} value={{po.purchaseOrderID}}  class="btn btn-info">Select</button><br />
-                    </form>
-                </td>
-            </tr>
-            {%endif%}
-        {% endfor %}
-    </table>
+
+    {% for po in po_list %} {%if po.poStatus == 'Approved' %}
+    <tr>
+      <td>{{po}}</td>
+      <td>{{po.purchaseOrderID}}</td>
+      <td>{{po.staffID}}</td>
+      <td>{{po.poStatus}}</td>
+      <td>
+        <form class="margintop" action="selectPo" method="POST">
+          {% csrf_token %}
+          <button
+            type="submit"
+            name="{{po.purchaseOrderID}}"
+            value="{{po.purchaseOrderID}}"
+            class="btn btn-info"
+          >
+            Select</button
+          ><br />
+        </form>
+      </td>
+    </tr>
+    {%endif%} {% endfor %}
+  </table>
 </div>
 
 <!-- REJECTED -->
 <div>
-    <h1>Rejected</h1>
-    <table>
+  <h1>Rejected</h1>
+  <table>
     <thead>
-        <th>No.</th>
-        <th>Purchase Order ID</th>
-        <th>Staff ID</th>
-        <th>Status</th>
-        <th>Selection</th>
+      <th>No.</th>
+      <th>Purchase Order ID</th>
+      <th>Staff ID</th>
+      <th>Status</th>
+      <th>Selection</th>
     </thead>
-    
-        {% for po in po_list %}
-            {%if po.poStatus == 'Rejected' %}
-            <tr>
-                <td>{{po}}</td>
-                <td>{{po.purchaseOrderID}}</td>
-                <td>{{po.staffID}}</td>
-                <td>{{po.poStatus}}</td>
-                <td>
-                    <form class="margintop" action='selectPo' method='POST'>
-                        {% csrf_token %} 
-                        <button type="submit" name={{po.purchaseOrderID}} value={{po.purchaseOrderID}}  class="btn btn-info">Select</button><br />
-                    </form>
-                </td>
-            </tr>
-            {%endif%}
-        {% endfor %}
-    </table>
+
+    {% for po in po_list %} {%if po.poStatus == 'Rejected' %}
+    <tr>
+      <td>{{po}}</td>
+      <td>{{po.purchaseOrderID}}</td>
+      <td>{{po.staffID}}</td>
+      <td>{{po.poStatus}}</td>
+      <td>
+        <form class="margintop" action="selectPo" method="POST">
+          {% csrf_token %}
+          <button
+            type="submit"
+            name="{{po.purchaseOrderID}}"
+            value="{{po.purchaseOrderID}}"
+            class="btn btn-info"
+          >
+            Select</button
+          ><br />
+        </form>
+      </td>
+    </tr>
+    {%endif%} {% endfor %}
+  </table>
 </div>
 
-
-<br>
-<form class="margintop" action='backtoHome' method='GET'>
+<br />
+<form class="margintop" action="backtoHome" method="GET">
   <button type="submit" class="button">Back</button><br />
 </form>
 {% endblock %}
