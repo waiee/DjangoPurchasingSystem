@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
-from app.models import Item, Quotation
+from app.models import Item, QuotationItem, Quotation
 
 # Create your views here.
 
@@ -18,16 +18,23 @@ def additemform(request):
 def additemconfirmation(request):
 
     newquotationID= request.POST['quotationID']
-    newtotalPrice= request.POST['totalPrice']
     newstaffID = request.POST['staffID']
+    newvendorID = request.POST['vendorID']
+    newvalidityDate = request.POST['validityDate']
+    newqtyProvided = request.POST['qtyProvided']
+    newtotalPrice= request.POST['totalPrice']
 
-    newQuotation = Quotation(quotationID = newquotationID,totalPrice = newtotalPrice, staffID=newstaffID)
+    newQuotation = Quotation(quotationID = newquotationID,
+    staffID=newstaffID, vendorID= newvendorID,validityDate=newvalidityDate,
+    qtyProvided= newqtyProvided, totalPrice = newtotalPrice,)
     newQuotation.save()
 
     context = {
-        'quotationID': newquotationID,
+        'quotationID': newquotationID, 'staffID': newstaffID,
+        'vendorID': newvendorID, 'totalPrice': newtotalPrice,
+        'validityDate': newvalidityDate, 'qtyProvided': newqtyProvided,
         'totalPrice': newtotalPrice,
-        'staffID': newstaffID,
+           
     }
     return render(request,'additem/additemconfirmation.html',context)
 
