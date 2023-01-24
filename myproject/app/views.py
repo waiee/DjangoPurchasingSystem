@@ -30,7 +30,7 @@ def contact(request):
         'app/contact.html',
         {
             'title':'Contact',
-            'message':'Dr. Yeoh.',
+            # 'message':'Dr. Yeoh.',
             'year':datetime.now().year,
         }
     )
