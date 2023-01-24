@@ -3,7 +3,7 @@
 {% block content %}
 <div class="formadditem" >
     <br>
-    <hi><p><strong>Item Added!</strong></p></hi>  
+    <hi><p><strong>Quotation Added!</strong></p></hi>  
 
     <p>Quotation ID: {{quotationID}}</p>
     <p>Staff ID: {{staffID}}</p>
@@ -11,6 +11,14 @@
     <p>Validity Date: {{validityDate}}</p>
     <p>Quantity Provided: RM{{qtyProvided}}</p>
     <p>Total Price: RM{{totalPrice}}</p>
+
+    {%for i in quo_list%}
+        <p>Quotation ID: {{quotationID}}</p>
+        <p>Item ID: {{itemID}}</p>
+        <p>Vendor ID: {{vendorID}}</p>
+        <p>Item Name: {{itemName}}</p>
+        <p>Item Price per Unit(RM): RM{{itemPriceperUnit}}</p>
+    {%endfor%}
     
     <form class="additemsubmission margintop" action="additemdetails" method="POST">
         <div class="margintop">

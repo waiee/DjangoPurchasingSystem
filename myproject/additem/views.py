@@ -40,23 +40,21 @@ def additemconfirmation(request):
 def addnewitem(request):
 
     newquotationID= request.POST['quotationID']
-    newquotationID= request.POST['quotationID']
-    
-    newstaffID = request.POST['staffID']
+    newitemID= request.POST['itemID']
     newvendorID = request.POST['vendorID']
-    newvalidityDate = request.POST['validityDate']
-    newqtyProvided = request.POST['qtyProvided']
-    newtotalPrice= request.POST['totalPrice']
+    newitemName = request.POST['itemName']
+    newitemPriceperUnit = request.POST['itemPriceperUnit']
 
-    newQuotation = Quotation(quotationID = newquotationID,
-    staffID=newstaffID, vendorID= newvendorID,validityDate=newvalidityDate,
-    qtyProvided= newqtyProvided, totalPrice = newtotalPrice,)
-    newQuotation.save()
+    newItem = QuotationItem(quotationID = newquotationID,
+    itemID=newitemID, vendorID= newvendorID, itemName=newitemName,
+    itemPriceperUnit= newitemPriceperUnit,)
+    newItem.save()
+
+    item_list = QuotationItem.objects.filter(quotationID=request.POST.get("quotationID"))
 
     context = {
-        'quotationID': newquotationID, 'staffID': newstaffID,
-        'vendorID': newvendorID, 'totalPrice': newtotalPrice,
-        'validityDate': newvalidityDate, 'qtyProvided': newqtyProvided,
-        'totalPrice': newtotalPrice,    
+        'quotationID': newquotationID, 'itemID': newitemID,
+        'vendorID': newvendorID, 'itemName': newitemName,
+        'itemPriceperUnit': newitemPriceperUnit, 'item_list': item_list,
     }
     return render(request,'additem/additemconfirmation.html',context)
