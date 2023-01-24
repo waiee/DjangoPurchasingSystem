@@ -55,9 +55,9 @@ def menu(request):
 
     context = {
             'title':'Main Menu',
+            'year':datetime.now().year,
             'is_employee': check_employee,
             'is_manager': check_manager,
-            'year':datetime.now().year,
         }
     context['user'] = request.user
 
