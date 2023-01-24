@@ -9,14 +9,39 @@
     <p>Staff ID: {{staffID}}</p>
     <p>Vendor ID: {{vendorID}}</p>
     <p>Validity Date: {{validityDate}}</p>
-    <p>Total Price: RM{{ totalPrice }}</p>
+    <p>Quantity Provided: RM{{qtyProvided}}</p>
+    <p>Total Price: RM{{totalPrice}}</p>
+
+
 
     <form class="additemsubmission margintop" action="additemdetails" method="POST">
         <div class="margintop">
             <a class="btn btn-danger btn-square buttonsize" href="/menu">Cancel</a>
         </div>
-
     </form>
+
+<div class="formadditem" >
+        <br>
+        <hi><p><strong>Add Item Form</strong></p></hi>
+    
+        <form class="additemsubmission" action="additemconfirmation" method="POST">
+          {% csrf_token %}
+    
+            <div class="row margintop">
+                <p><input type="text" name='quotationID' placeholder='Quotation ID'  class="form-control" /></p>
+                <p><input type="text" name="staffID"  placeholder=' Staff ID' class="form-control" ></p>
+                <p><input type="text" name="vendorID"  placeholder='Vendor ID' class="form-control" ></p>
+                <p><input type="text" name="totalPrice"  placeholder='Total Price' class="form-control" ></p>
+                <p><input type="text" name="validityDate"  placeholder='Validity Date' class="form-control" ></p>
+                <p><input type="text" name="qtyProvided"  placeholder='Quantity Provided' class="form-control" ></p>
+              </div>
+    
+            <div class="margintop">
+                <button type="submit" class="btn btn-success btn-square buttonsize">Next</button>
+                <a class="btn btn-danger btn-square buttonsize" href="/menu">Cancel</a>
+            </div>
+        </form>
+</div>
 
 </div>
 
