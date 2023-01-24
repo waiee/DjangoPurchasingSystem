@@ -18,34 +18,32 @@ def additemform(request):
 def additemconfirmation(request):
 
     newquotationID= request.POST['quotationID']
-    newstaffID = request.POST['staffID']
-    newvendorID = request.POST['vendorID']
     newvalidityDate = request.POST['validityDate']
     newqtyProvided = request.POST['qtyProvided']
     newtotalPrice= request.POST['totalPrice']
 
-    newQuotation = Quotation(quotationID = newquotationID,
-    staffID=newstaffID, vendorID= newvendorID,validityDate=newvalidityDate,
+    newQuotation = Quotation(quotationID = newquotationID,validityDate=newvalidityDate,
     qtyProvided= newqtyProvided, totalPrice = newtotalPrice,)
     newQuotation.save()
 
     context = {
-        'quotationID': newquotationID, 'staffID': newstaffID,
-        'vendorID': newvendorID, 'totalPrice': newtotalPrice,
-        'validityDate': newvalidityDate, 'qtyProvided': newqtyProvided,
-        'totalPrice': newtotalPrice,    
+        'quotationID': newquotationID,'totalPrice': newtotalPrice,
+        'validityDate': newvalidityDate,'qtyProvided': newqtyProvided, 
     }
     return render(request,'additem/additemconfirmation.html',context)
 
 def addnewitem(request):
 
     newquotationID= request.POST['quotationID']
-    newitemID= request.POST['itemID']
+    current_quo = request.POST.get(pk=newquotationID)
     newvendorID = request.POST['vendorID']
+    current_ven = request.POST.get(pk=newvendorID)
+
+    newitemID= request.POST['itemID']
     newitemName = request.POST['itemName']
     newitemPriceperUnit = request.POST['itemPriceperUnit']
 
-    newItem = QuotationItem(quotationID = newquotationID,
+    newItem = QuotationItem(quotationID = current_quo,
     itemID=newitemID, vendorID= newvendorID, itemName=newitemName,
     itemPriceperUnit= newitemPriceperUnit,)
     newItem.save()
@@ -54,7 +52,9 @@ def addnewitem(request):
 
     context = {
         'quotationID': newquotationID, 'itemID': newitemID,
+        'current_quo': current_quo, 'current_ven':current_ven,
         'vendorID': newvendorID, 'itemName': newitemName,
         'itemPriceperUnit': newitemPriceperUnit, 'item_list': item_list,
+        'newItem': newItem,
     }
     return render(request,'additem/additemconfirmation.html',context)

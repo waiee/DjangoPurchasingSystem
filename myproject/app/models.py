@@ -37,7 +37,7 @@ class Vendor(models.Model):
 
 class Quotation(models.Model):
     quotationID = models.CharField(primary_key=True, max_length=10)
-    staffID = models.ForeignKey(Staff,default=None, on_delete=models.CASCADE)
+    staffID = models.ForeignKey(Staff,default=None, on_delete=models.CASCADE, null=True)
     vendorID = models.ForeignKey(Vendor,default=None, on_delete=models.CASCADE)
     totalPrice = models.FloatField(default=None, null=True)
     validityDate = models.DateField()
