@@ -37,3 +37,26 @@ def additemconfirmation(request):
     }
     return render(request,'additem/additemconfirmation.html',context)
 
+def addnewitem(request):
+
+    newquotationID= request.POST['quotationID']
+    newquotationID= request.POST['quotationID']
+    
+    newstaffID = request.POST['staffID']
+    newvendorID = request.POST['vendorID']
+    newvalidityDate = request.POST['validityDate']
+    newqtyProvided = request.POST['qtyProvided']
+    newtotalPrice= request.POST['totalPrice']
+
+    newQuotation = Quotation(quotationID = newquotationID,
+    staffID=newstaffID, vendorID= newvendorID,validityDate=newvalidityDate,
+    qtyProvided= newqtyProvided, totalPrice = newtotalPrice,)
+    newQuotation.save()
+
+    context = {
+        'quotationID': newquotationID, 'staffID': newstaffID,
+        'vendorID': newvendorID, 'totalPrice': newtotalPrice,
+        'validityDate': newvalidityDate, 'qtyProvided': newqtyProvided,
+        'totalPrice': newtotalPrice,    
+    }
+    return render(request,'additem/additemconfirmation.html',context)

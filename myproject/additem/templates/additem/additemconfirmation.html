@@ -11,9 +11,7 @@
     <p>Validity Date: {{validityDate}}</p>
     <p>Quantity Provided: RM{{qtyProvided}}</p>
     <p>Total Price: RM{{totalPrice}}</p>
-
-
-
+    
     <form class="additemsubmission margintop" action="additemdetails" method="POST">
         <div class="margintop">
             <a class="btn btn-danger btn-square buttonsize" href="/menu">Cancel</a>
@@ -24,17 +22,16 @@
         <br>
         <hi><p><strong>Add Item Form</strong></p></hi>
     
-        <form class="additemsubmission" action="additemconfirmation" method="POST">
+        <form class="additemsubmission" action="addnewitem" method="POST">
           {% csrf_token %}
     
             <div class="row margintop">
-                <p><input type="text" name='quotationID' placeholder='Quotation ID'  class="form-control" /></p>
-                <p><input type="text" name="staffID"  placeholder=' Staff ID' class="form-control" ></p>
-                <p><input type="text" name="vendorID"  placeholder='Vendor ID' class="form-control" ></p>
-                <p><input type="text" name="totalPrice"  placeholder='Total Price' class="form-control" ></p>
-                <p><input type="text" name="validityDate"  placeholder='Validity Date' class="form-control" ></p>
-                <p><input type="text" name="qtyProvided"  placeholder='Quantity Provided' class="form-control" ></p>
-              </div>
+                <p><input type="text" name="{{quotationID}}" placeholder="{{quotationID}}"  class="form-control" /></p>
+                <p><input type="text" name="itemID"  placeholder='Item ID' class="form-control" ></p>
+                <p><input type="text" name="{{vendorID}}"  placeholder='{{vendorID}}' class="form-control" ></p>
+                <p><input type="text" name="itemName"  placeholder='Item Name' class="form-control" ></p>
+                <p><input type="text" name="itemPriceperUnit"  placeholder='Item Price per Unit' class="form-control" ></p>
+            </div>
     
             <div class="margintop">
                 <button type="submit" class="btn btn-success btn-square buttonsize">Next</button>
