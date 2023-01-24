@@ -10,10 +10,10 @@
 </style>
 
 <h2>{{ title }}</h2>
-<div style="text-align: center" class="row">
-    <!-- <div class="col-md-8"> -->
+<div class="row">
+    <div class="col-md-8">
         <section id="loginForm">
-            <form action="." method="post" class="form-horizontal">
+            <form  style="text-align: center" method="post" class="form-horizontal">
                 {% csrf_token %}
                 <h1> <strong>Welcome to Purchasing System.</strong></h1>
                 <hr />
@@ -40,7 +40,7 @@
                 {% endif %}
             </form>
         </section>
-    <!-- </div> -->
+    </div>
     <div class="col-md-4">
         <section id="socialLoginForm"></section>
     </div>
