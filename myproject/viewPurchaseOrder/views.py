@@ -22,19 +22,22 @@ def viewPo(request):
 def selectPo(request):
     data = PurchaseOrder.objects.filter()
     po = None
+    totalProducts = 0
 
     for i in data:
         if i.purchaseOrderID in request.POST:
             po = PurchaseOrder.objects.filter(purchaseOrderID=i.purchaseOrderID)
             products = PurchaseOrderProduct.objects.filter(purchaseOrderID=i.purchaseOrderID, productPurchased=True)
             qtyNeeded = po.get().qtyNeeded
+
+            totalProducts = qtyNeeded * po.get().productID.productPriceperUnit
+
             qtyProvided = po.get().qtyProvided
             staffID = po.get().staffID
             vendorID = po.get().vendorID
             poStatus = po.get().poStatus
-            totalPrice = po.get().totalPrice
-            print(poStatus)
-    
+            totalPrice = totalProducts
+
     quo = po.get().quotationID 
 
     context = {
