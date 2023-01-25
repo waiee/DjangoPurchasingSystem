@@ -49,7 +49,7 @@ def approvePo(request):
     #GET SELECTED PO
     currentPo = PurchaseOrder.objects.filter(purchaseOrderID=request.POST.get("purchaseOrder"))
     print(currentPo)
-    currentPo.update(poStatus='Pending')
+    currentPo.update(poStatus='Approved')
 
     context = {
         'currentPo':currentPo         
