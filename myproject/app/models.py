@@ -71,7 +71,7 @@ class PurchaseOrder(models.Model):
     totalPrice = models.FloatField(default=None, null=True)
     poStatus = models.CharField(max_length=20, default="Pending")
     selected = models.BooleanField(default=False)
-
+    
     def __str__(self):
         return str(self.purchaseOrderID)
 
