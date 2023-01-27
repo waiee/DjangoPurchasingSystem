@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
-from app.models import Quotation, QuotationItem, Staff
+from app.models import *
 from django.http import HttpRequest
 from django.shortcuts import render, redirect
 
