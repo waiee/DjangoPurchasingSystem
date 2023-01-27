@@ -1,0 +1,46 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<style>
+    .button{
+        padding : 13px 15px;
+        margin : 5px 2px;
+        width: 230px;
+        border: none;
+        border-radius: 12px;
+        background-color:#00ADB5;
+        color: white;
+        text-align: center;
+    }
+    
+    button:hover{
+        background-color: #367e81;
+    }
+    .center{
+        text-align: center;
+    }
+
+    .align {
+    width: 1200px; 
+    margin: auto; 
+    text-align: center;
+    padding: 350px;
+    border-radius: 100px;
+}
+    
+    
+</style>
+
+
+<body>
+    <div class="align">
+            <h2><strong>Status changed successfully.</strong></h2>
+            <br>
+            <form class="margintop" action='backtoHome' method='GET'>
+                <button type="submit" class="button">Back to Main Page</button><br/>
+            </form>
+    </div>
+</body>
+
+{% endblock %}

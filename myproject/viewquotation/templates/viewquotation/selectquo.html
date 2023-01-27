@@ -1,0 +1,206 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+
+<!DOCTYPE html>
+    <h1> Quotation Detail</h1>
+</head>
+
+<body>
+    <table class = "table1">
+        <tr>
+          <th>Product ID</th>
+          <th>Product Name</th>
+          <th>Price Per Unit (RM)</th>
+          <th>Quantity</th>
+          <th>Total Price (RM)</th>
+        </tr>
+        {% for x in item%}
+          <tr>
+            <td>{{x.itemID}}</td>
+            <td>{{x.itemName}}</td>
+            <td>{{x.itemPriceperUnit}}</td>
+            <td>{{x.quantity}}</td>
+            <td>RM{{totalPrice}}</td>
+          </tr>
+        {% endfor %}
+<!-- 
+        <tr>
+            <td>01</td>
+            <td>Monitor</td>
+            <td>RM599.00</td>
+            <td>4</td>
+            <td>RM2396.00</td>
+        </tr>
+        <tr>
+            <td>02</td>
+            <td>Mouse</td>
+            <td>RM50.00</td>
+            <td>12</td>
+            <td>RM600.00</td>
+        </tr> -->
+    
+    </table>
+
+    <br>
+    <table class = "table2">
+        <tr>
+          <th>Staff ID</th>
+          <th>Vendor ID</th>
+          <th>Status</th>
+          <th>Validity Date</th>
+          <th>Final Total Price (RM)</th>
+        </tr>
+        <tr>
+          <td>{{staffID}}</td>
+          <td>{{vendorID}}</td>
+          <td>{{quotationStatus}}</td>
+          <td>{{validityDate}}</td>
+          <td>RM{{totalPrice}}</td>
+
+        </tr>
+        <!-- <tr>
+            <td>702</td>
+            <td>401</td>
+            <td>Pending</td>
+            <td>09/06/2019</td>
+            <td>RM7,726.79</td>
+        </tr> -->
+    </table>
+    <br>
+    <div class="centre">
+      <div>
+          <form style="display: inline-block" class="margintop" action='approvequo' method='POST'>
+              {% csrf_token %} 
+              <button type="submit" name="quotation" value="{{quotation.quotationID}}" class="approve">Approve</button><br />
+          </form>
+       
+          <form style="display: inline-block" class="margintop" action='rejectquo' method='POST'>
+        {% csrf_token %} 
+        <button type="submit" name="quotation" value="{{quotation.quotationID}}" class="reject">Reject</button><br />
+          </form>
+      </div>
+      <div>
+        <form class="margintop" action='backtoList' method='GET'>
+            <button type="submit" class="button">Back</button><br />
+        </form>
+    </div>
+</div> 
+</body>
+
+
+<style>
+    body{
+        background-color: #EEEEEE;
+    }
+    
+    h1 {
+      font-weight: 600;
+      text-shadow: 0px 2px 2px;   
+      font-size: 30px;
+      text-align: center;
+      font-family: Arial;
+    }
+
+    .table1{
+      margin-right: auto;
+      margin-left: auto;
+      font-family: Arial;
+      font-weight: Regular;
+      text-align: center;
+  }
+    
+    .table2{
+      margin-right: auto;
+      margin-left: auto;
+      font-family: Arial;
+      font-weight: Regular;
+      text-align: center;
+      padding-top: 50px;
+    }
+
+    th {
+      text-align: center;
+      color:#EEEEEE;
+      font-family: Arial;
+      font-weight: Regular;
+      background: #00ADB5;
+      border: 1px solid #dddd;
+
+    }
+
+    td {
+        color: #EEEEEE;
+        font-family: Arial;
+        font-weight: Regular;
+        background: #393E46;
+        width: 339px;
+        height: 51px;
+        border: 1px solid #dddd;
+    }
+    
+	button:hover {
+		color: #000000;
+    }
+    
+    .approve{
+        padding : 13px 15px;
+        margin : 5px 2px;
+        width: 230px;
+        border: none;
+        border-radius: 12px;
+        background-color:#3E9C4D;
+        color: white;
+    }
+
+    .reject{
+        padding : 13px 15px;
+        margin : 5px 2px;
+        width: 230px;
+        border: none;
+        border-radius: 12px;
+        background-color:#8F3F3F;
+        color: white;
+    }
+
+
+    .back{
+        margin: auto;
+        display: block;
+        border: none;
+        border-radius: 4px;
+        width: 200px;
+        height: 30px;  
+        color: #EEEEEE;
+        background: #00ADB5;
+
+    }
+
+    .back:hover {
+        color: #000000;
+    }
+
+    .centre{
+        text-align: center;
+    }
+
+    .button{
+            padding : 10px 20px;
+            margin : 5px 2px;
+            display: inline-block;
+            width: 180px;
+            border: none;
+            border-radius: 12px;
+            background-color:#00ADB5;
+            color: white;
+            display: inline-block;
+            
+    
+    }
+
+
+</style>
+</html>
+
+{% endblock %}

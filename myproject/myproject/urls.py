@@ -24,6 +24,8 @@ from additem import views as additem_views
 from submitQuotation import views as subQuo_views
 from submitQuotation import views as quoList_views
 from submitQuotation import views as quoDetail_views
+from viewquotation import views as viewquo_views
+from arQuotation import views as arviewquo_views
 
 
 
@@ -56,6 +58,39 @@ urlpatterns = [
     re_path(r'^quotationList$', quoList_views.quotationList, name='quotation_list'),
     re_path(r'^quotationDetail$', quoDetail_views.quotationDetail, name='quotation_detail'),
 
+    #Employee
+    re_path(r'^viewquo', viewquo_views.viewquo, name='viewquo'),
+    re_path(r'^viewquo/', viewquo_views.viewquo, name='viewquo'),
+    re_path(r'^viewquo/selectquo$', viewquo_views.selectquo, name='selectquo'),
+    re_path(r'^selectquo$', viewquo_views.selectquo, name='selectquo'),
+    re_path(r'^viewquo/backtoHome$', viewquo_views.backtoHome, name='backtoHome'),
+    re_path(r'^viewquo/backtoHome/$', viewquo_views.backtoHome, name='backtoHome'),
+    re_path(r'^backtoHome$', viewquo_views.backtoHome, name='backtoHome'),
+    re_path(r'^viewquo/approvequo$', viewquo_views.approvequo, name='approvequo'),
+    re_path(r'^approvequo$', viewquo_views.approvequo, name='approvequo'),
+    re_path(r'^viewquo/rejectquo$', viewquo_views.rejectquo, name='rejectquo'),
+    re_path(r'^rejectquo$', viewquo_views.rejectquo, name='rejectquo'),
+    re_path(r'^backtoList$', viewquo_views.backtoList, name='backtoList'),
+    re_path(r'^viewquo/backtoList$', viewquo_views.backtoList, name='backtoList'),
+    re_path(r'^searchquo$', viewquo_views.searchquo, name='searchquo'),
+    re_path(r'^viewquo/searchquo$', viewquo_views.searchquo, name='searchquo'),
+
+    re_path(r'^arviewquo', arviewquo_views.arviewquo, name='arviewquo'),
+    re_path(r'^arviewquo/', arviewquo_views.arviewquo, name='arviewquo'),
+    re_path(r'^arviewquo/selectquo$', arviewquo_views.arselectquo, name='arselectquo'),
+    re_path(r'^arselectquo$', arviewquo_views.arselectquo, name='arselectquo'),
+    re_path(r'^arviewquo/arbacktoHome$', arviewquo_views.arbacktoHome, name='arbacktoHome'),
+    re_path(r'^arbacktoHome$', arviewquo_views.arbacktoHome, name='arbacktoHome'),
+    re_path(r'^arviewquo/arapprovequo$', arviewquo_views.arapprovequo, name='arapprovequo'),
+    re_path(r'^arapprovequo$', arviewquo_views.arapprovequo, name='arapprovequo'),
+    re_path(r'^arviewquo/arrejectquo$', arviewquo_views.arrejectquo, name='arrejectquo'),
+    re_path(r'^arrejectquo$', arviewquo_views.arrejectquo, name='arrejectquo'),
+    re_path(r'^arbacktoList$', arviewquo_views.arbacktoList, name='arbacktoList'),
+    re_path(r'^arviewquo/arbacktoList$', arviewquo_views.arbacktoList, name='arbacktoList'),
+    re_path(r'^arsearchquo$', arviewquo_views.arsearchquo, name='arsearchquo'),
+    re_path(r'^arviewquo/arsearchquo$', arviewquo_views.arsearchquo, name='arsearchquo'),
+
+    #Finance Officer
 
 
     #Manager
