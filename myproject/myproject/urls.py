@@ -26,7 +26,6 @@ from submitQuotation import views as quoList_views
 from submitQuotation import views as quoDetail_views
 from viewquotation import views as viewquo_views
 from arQuotation import views as arviewquo_views
-# from createPurchaseOrder import views as createPurchaseOrder_views
 from createPurchaseOrder import views as createPurchaseOrder_views
 from viewPurchaseOrderStatus import views as viewPurchaseOrderStatus_views
 from viewPurchaseOrder import views as viewPo_views
