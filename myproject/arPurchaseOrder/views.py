@@ -56,7 +56,7 @@ def arapprovePo(request):
     #GET SELECTED PO
     currentPo = PurchaseOrder.objects.filter(purchaseOrderID=request.POST.get("purchaseOrder"))
     print(currentPo)
-    currentPo.update(poStatus='Pending')
+    currentPo.update(poStatus='Approved')
 
     #DATA AFTER
     # print(dataP)
