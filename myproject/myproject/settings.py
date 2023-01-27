@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'app',
     'additem',
     'submitQuotation',
-    'viewQuotation',
+    'viewquotation',
     'arQuotation',
     'viewPurchaseOrder',
     'arPurchaseOrder',
