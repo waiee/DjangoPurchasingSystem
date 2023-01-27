@@ -34,6 +34,7 @@ admin.autodiscover()
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('admin', admin.site.urls),
     re_path(r'^$', main_views.home, name='home'),
     re_path(r'^contact$', main_views.contact, name='contact'),
     re_path(r'^about$', main_views.about, name='about'),
@@ -96,7 +97,6 @@ urlpatterns = [
     re_path(r'^newPurchaseOrder$', createPurchaseOrder_views.newPurchaseOrder, name='newPurchaseOrder'),
     re_path(r'^purchaseOrderList$', viewPurchaseOrderStatus_views.purchaseOrderList, name='purchaseOrderList'),
     re_path(r'^poDetail$', viewPurchaseOrderStatus_views.poDetail, name='poDetail'),
-    re_path(r'^poConfirmation$', createPurchaseOrder_views.poConfirmation, name='poConfirmation'),
     re_path(r'^purchaseOrderProductID$', createPurchaseOrder_views.purchaseOrderProductID, name='purchaseOrderProductID'),
     
     #Manager

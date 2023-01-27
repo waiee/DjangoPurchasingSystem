@@ -18,8 +18,7 @@ def arviewquo(request):
         'quotation_list' : quotation_list,
     }
 
-    return render(request, 'arQuotation/viewquotation.html', context)
-
+    return render(request,'arQuotation/viewquotation.html', context)
 
 def arselectquo(request):
     data = Quotation.objects.filter()
