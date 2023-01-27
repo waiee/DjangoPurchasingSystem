@@ -40,10 +40,10 @@ class Vendor(models.Model):
 class Quotation(models.Model):
     quotationID = models.CharField(primary_key=True, max_length=10)
     staffID = models.ForeignKey(Staff,default=None, on_delete=models.CASCADE, null=True)
-    vendorID = models.ForeignKey(Vendor,default=None, on_delete=models.CASCADE)
+    vendorID = models.ForeignKey(Vendor,default=None, on_delete=models.CASCADE,null=True)
     totalPrice = models.FloatField(default=None, null=True)
     validityDate = models.DateField()
-    qtyProvided = models.IntegerField(null=True)
+    qtyProvided = models.IntegerField(default=None, null=True)
     quotationStatus = models.CharField(max_length=20, default="Pending")
     selected = models.BooleanField(default=False)
 
@@ -57,6 +57,7 @@ class QuotationItem(models.Model):
     itemName = models.TextField(max_length=40, null=True)
     quantity = models.IntegerField(default=None, null=True)
     itemPriceperUnit = models.FloatField(default=None, null=True)
+    itemFinalPrice = models.FloatField(default=None, null=True)
     itemPurchased = models.BooleanField(default=False)
     
     def __str__(self):
@@ -68,7 +69,7 @@ class PurchaseOrder(models.Model):
     quotationID = models.ForeignKey(Quotation,default=None, on_delete=models.CASCADE)
     vendorID = models.ForeignKey(Vendor,default=None, on_delete=models.CASCADE)
     qtyNeeded = models.IntegerField(default=None, null=True)
-    qtyProvided = models.IntegerField()
+    qtyProvided = models.IntegerField(default=None, null=True)
     totalPrice = models.FloatField(default=None, null=True)
     poStatus = models.CharField(max_length=20, default="Pending")
     selected = models.BooleanField(default=False)

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<link rel="stylesheet" href="quotationDetails.css"/>-->
+    <title>Quotation Details</title>
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            font-family: arial;
+        }
+
+        h1{
+            padding: 10px;
+            text-shadow: 0px 4px 4px 
+            rgba(0, 0, 0, 0.25);
+            font-weight: 600;
+            font-style: normal;
+            font-family: Arial;
+            margin: 0px;
+            font-size: 50px;
+        }
+
+        table, th,td {
+            border:none;
+            border-collapse: collapse;
+            border-left: 1px solid white;
+            border-right: 1px solid white;
+            text-align: center;
+            padding:10px;
+        } 
+
+        th {
+            background-color: #00ADB5;
+            color: white;
+            padding:15px;
+        }
+
+        tr{
+            border:1px solid;
+            border-color: white;
+            background-color: #393E46;
+            color: white;
+        }
+
+        tr > td {
+            min-width: 240px;
+            /* border: 1px solid black; */
+        }
+
+        tr > td:first-child {
+            min-width: 240px;
+        }
+        
+        button {
+			color: #ffffff;
+			font-size: 19px;
+			border: 1px solid #ffffff;
+			border-radius: 10px;
+			padding: 15px 50px;
+			cursor: pointer;
+            border-bottom: 0;
+		}
+		/* button:hover a{
+			color: #000000;
+            background-color: #1b5124;
+        } */
+        
+
+
+
+    </style>
+</head>
+
+    
+   <center>
+    <body>
+
+          <br><br><br><br>
+          {% for i in quoItemList  %}
+            <h1>Quotation #{{i.quotationID}}</h1>
+            <br><br>
+            <table>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Name</th>
+                    <th>Price Per Unit (RM)</th>
+                    <th>Quantity Provided</th>
+                    <!-- <th>Total Price</th> -->
+                </tr>
+                
+                <tr>
+                    <td>{{i.itemID}}</td>
+                    <td>{{i.itemName}}</td>
+                    <td>{{i.itemPriceperUnit}}</td>
+                    <td>{{i.quantity}}</td>
+                    <!-- <td>RM{{totalPrice}}</td> -->
+                </tr>
+                {% endfor %}
+            {% for i in quoList  %}
+            </table><br><br><br><br>
+            <table>
+                <tr>
+                    <th>Staff ID</th>
+                    <!-- <th>Vendor ID</th> -->
+                    <th>Validity Date</th>
+                    <th>Status</th>
+                    <th>Final Total Price (RM)</th>
+                </tr>
+                <tr>
+                    <td>{{i.staffID}}</td>
+                    <!-- <td>{{vendorID}}</td> -->
+                    <td>{{i.validityDate}}</td>
+                    <td>{{i.quotationStatus}}</td>
+                    <td>{{i.totalPrice}}</td>
+                </tr>
+            {% endfor %}
+               
+            </table>
+        </div><br><br><br>
+   
+    <form action = "createPurchaseOrder" method="POST">
+      <div class="center">
+      <button type = "button" class="button" 
+      style="width:300px;height:50px;text-align:center;background-color: #00ADB5" >
+      <a style= "color: white; text-decoration: none;" href="{% url 'menu' %}">
+      Back to Main Page
+    </a>
+  </button>
+  
+    {% csrf_token %}
+  <button value= "{{ql.quotationID}}" name="quotationID"  type = "submit" class="button"
+  style="width:400px;height:50px;text-align:center;background-color: #3E9C4D; color: white; text-decoration: none;">
+      Create New Purchase Order
+  </button>
+</form>
+</div>
+    </body>
+</center>
+</html>

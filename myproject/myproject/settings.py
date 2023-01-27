@@ -40,6 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app',
     'additem',
+    'submitQuotation',
+    'viewquotation',
+    'createPurchaseOrder',
+    'viewPurchaseOrderStatus',
     'viewPurchaseOrder',
     'arPurchaseOrder',
 ]

@@ -50,13 +50,17 @@ def about(request):
 
 @login_required
 def menu(request):
+    check_purchaser = request.user.groups.filter(name='purchaser').exists()
     check_employee = request.user.groups.filter(name='employee').exists()
+    check_financeofficer = request.user.groups.filter(name='finance officer').exists()
     check_manager = request.user.groups.filter(name='manager').exists()
 
     context = {
             'title':'Main Menu',
             'year':datetime.now().year,
+            'is_purchaser': check_purchaser,
             'is_employee': check_employee,
+            'is_financeofficer': check_financeofficer,
             'is_manager': check_manager,
         }
     context['user'] = request.user

@@ -1,0 +1,179 @@
+{% extends "app/layoutEmployee.html" %}
+
+{% block content %}
+
+<!DOCTYPE html>
+
+<head>
+    <h1> Quotation List </h1>
+</head>
+
+<body> 
+  <div>
+    <form class="margintop" action = 'searchquo' method='POST'>
+      {% csrf_token %} 
+      <input type="text" placeholder="Search here..." aria-label="Search here.." name = "searched")>
+      <button class="btn btn-info">Search</button>
+    </form>
+  </div>
+
+  <!-- PENDING -->
+  <div>
+    <table>
+      <h1>Pending Table</h1>
+        <tr>
+          <th>No.</th>
+          <th>Quotation ID</th>
+          <th>Staff ID</th>
+          <th>Status</th>
+          <th>Selection</th>
+        </tr>
+        
+        {% for quotation in quotation_list%}
+          {% if quotation.quotationStatus == 'Pending'%}
+          <tr>
+            <td>{{quotation}}</td>
+            <td>{{quotation.quotationID}}</td>
+            <td>{{quotation.staffID}}</td>
+            <td>{{quotation.quotationStatus}}</td>
+            <td>
+              <form class='margintop' action='selectquo' method='POST'>
+                {% csrf_token %}
+                <button type="submit" value={{quotation.quotationID}} name={{quotation.quotationID}} class="btn btn-info">Select</button>
+              </form>
+            </td>
+          </tr>
+          {%endif%}
+        {% endfor %}
+    </table>
+  </div>
+  <br>
+  <!-- APPROVED -->
+  <div>
+    <table>
+      <h1>Approved Table</h1>
+      <tr>
+        <th>No.</th>
+        <th>Quotation ID</th>
+        <th>Staff ID</th>
+        <th>Status</th>
+        <th>Selection</th>
+      </tr>
+  
+      {% for quotation in quotation_list%}
+      {% if quotation.quotationStatus == 'Approved'%}
+      <tr>
+        <td>{{quotation}}</td>
+        <td>{{quotation.quotationID}}</td>
+        <td>{{quotation.staffID}}</td>
+        <td>{{quotation.quotationStatus}}</td>
+        <td>
+          <form class='margintop' action='selectquo' method='POST'>
+            {% csrf_token %}
+            <button type="submit" value={{quotation.quotationID}} name={{quotation.quotationID}} class="btn btn-info">Select</button>
+          </form>
+        </td>
+      </tr>
+      {%endif%}
+    {% endfor %}
+    </table>
+  </div>
+<br>
+  <!-- REJECTED -->
+  <div>
+    <table>
+      <h1>Rejected Table</h1>
+      <tr>
+        <th>No.</th>
+        <th>Quotation ID</th>
+        <th>Staff ID</th>
+        <th>Status</th>
+        <th>Selection</th>
+      </tr>
+  
+    {% for quotation in quotation_list%}
+      {% if quotation.quotationStatus == 'Rejected'%}
+      <tr>
+        <td>{{quotation}}</td>
+        <td>{{quotation.quotationID}}</td>
+        <td>{{quotation.staffID}}</td>
+        <td>{{quotation.quotationStatus}}</td>
+        <td>
+          <form class='margintop' action='selectquo' method='POST'>
+            {% csrf_token %}
+            <button type="submit" value={{quotation.quotationID}} name={{quotation.quotationID}} class="btn btn-info">Select</button>
+          </form>
+        </td>
+      </tr>
+      {%endif%}
+    {% endfor %}
+    </table>
+  </div>
+
+  <br />
+  <form class="margintop" action="backtoHome" method="GET">
+    <button type="submit" class="button">Back</button><br />
+  </form>
+
+</body>
+
+
+<style>
+  body{
+    background-color: #EEEEEE;
+  }
+
+  h1 {
+    font-size: 30px;
+    text-align: center;
+    font-family: Arial;
+    font-weight: 600px;
+    text-shadow: 0px 4px 4px;   
+  }
+
+  table{
+    margin-right: auto;
+    margin-left: auto;
+    font-family: Arial;
+    font-weight: Regular;
+    text-align: center;
+  }
+
+  th {
+    text-align: center;
+    color:#EEEEEE;
+    font-family: Arial;
+    font-weight: Regular;
+    background: #00ADB5;
+    border: 1px solid #dddd;
+
+    }
+
+  td {
+    color: #EEEEEE;
+    font-family: Arial;
+    font-weight: Regular;
+    background: #393E46;
+    width: 339px;
+    height: 51px;
+    border: 1px solid #dddd;
+  }
+
+  button:hover {
+		color: #000000;
+  }
+
+  button{
+    background-color: #00ADB5;
+    color: #EEEEEE;
+    font-size: 15px;
+    border-radius: 10px;
+    padding: 10px 30px;
+    border:none;
+    text-align: center;
+  }
+
+</style>
+</html>
+
+{% endblock %}

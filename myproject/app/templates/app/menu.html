@@ -28,24 +28,59 @@
 <body>
 <div>
     <br />
-    {% if is_employee %}
-         <h2>Employee Menu</h2>
+
+    {% if is_purchaser %}
+         <h2>Purchaser Menu</h2>
+    {% elif is_employee %}  
+         <h2><strong>Employee Menu</strong></h2>
+    {% elif is_financeofficer %}  
+         <h2><strong>Finance Officer Menu</strong></h2>
     {% elif is_manager %}  
          <h2><strong>Manager Menu</strong></h2>
     {% endif %}
 
     <!-- <br /> -->
     <table>
-    {% if is_employee %}
+    {% if is_purchaser %}
         <tr><td>
-    <form class="margintop" action='additemform' method='GET'>
-        <button type="submit" class="btn btn-info">Add Item</button><br />
+    <form class="margintop" action='submitQuotation' method='GET'>
+        <button type="submit" class="button">Submit Quotation</button><br />
     </form>
             </td></tr>
             
         <tr><td>
     <form class="margintop" action='module2' method='GET'>
-        <button type="submit" class="btn btn-outline-info waves-effect">Module 2</button><br />
+        <button type="submit" class="button">Module 2</button><br />
+    </form>
+        </td></tr>
+
+    <!-- <br /> -->
+    <table>
+    {% elif is_employee %}
+        <tr><td>
+    <form class="margintop" action='arviewquo' method='GET'>
+        <button type="submit" class="button">View Quotation</button><br />
+    </form>
+            </td></tr>
+            
+        <tr><td>
+    <form class="margintop" action='viewquo' method='GET'>
+        <button type="submit" class="button">Approve/Reject Quotation</button><br />
+    </form>
+        </td></tr>
+
+    <!-- <br /> -->
+    <table>
+    {% elif is_financeofficer %}
+        <tr><td>
+    <form class="margintop" action='createPurchaseOrder' method='GET'>
+        <button type="submit" class="button">Create Purchase Order</button><br />
+    </form>
+            </td></tr>
+            
+        <tr><td>
+    <form class="margintop" action='purchaseOrderList' method='GET'>
+        <button type="submit" class="button">View Purchase Order Status</button><br />
     </form>
         </td></tr>
 
@@ -70,6 +105,6 @@
     {% endif %}            
     </table>
 </div>
+</body>
 
 {% endblock %}
-</body>

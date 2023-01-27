@@ -1,6 +1,4 @@
 from django.shortcuts import render
-
-# Create your views here.
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
 from django.shortcuts import render, redirect
@@ -49,7 +47,7 @@ def approvePo(request):
     #GET SELECTED PO
     currentPo = PurchaseOrder.objects.filter(purchaseOrderID=request.POST.get("purchaseOrder"))
     print(currentPo)
-    currentPo.update(poStatus='Pending')
+    currentPo.update(poStatus='Approved')
 
     context = {
         'currentPo':currentPo         
