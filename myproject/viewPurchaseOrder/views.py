@@ -94,7 +94,7 @@ def backtoHome(request):
                 'year': datetime.now().year,
             }
         )
-def backtoList(request):
+def backtolist(request):
     """Renders the home page."""
     assert isinstance(request, HttpRequest)
     if request.user.is_authenticated:

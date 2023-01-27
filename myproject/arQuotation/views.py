@@ -17,7 +17,6 @@ def arviewquo(request):
         'year': datetime.now().year,
         'quotation_list' : quotation_list,
     }
-
     return render(request,'arQuotation/viewquotation.html', context)
 
 def arselectquo(request):

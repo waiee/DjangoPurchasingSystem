@@ -34,7 +34,6 @@ admin.autodiscover()
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('admin', admin.site.urls),
     re_path(r'^$', main_views.home, name='home'),
     re_path(r'^contact$', main_views.contact, name='contact'),
     re_path(r'^about$', main_views.about, name='about'),
@@ -107,9 +106,9 @@ urlpatterns = [
     re_path(r'^viewPo/searchPo$', viewPo_views.searchPo, name='searchPo'),
     re_path(r'^viewPo/selectPo$', viewPo_views.selectPo, name='selectPo'),
     re_path(r'^backtoHome$', viewPo_views.backtoHome, name='backtoHome'),
-    re_path(r'^backtoList$', viewPo_views.backtoList, name='backtoList'),
+    re_path(r'^backtolist$', viewPo_views.backtolist, name='backtolist'),
     re_path(r'^viewPo/backtoHome$', viewPo_views.backtoHome, name='backtoHome'),
-    re_path(r'^viewPo/backtoList$', viewPo_views.backtoList, name='backtoList'),
+    re_path(r'^viewPo/backtolist$', viewPo_views.backtolist, name='backtolist'),
     re_path(r'^viewPo/approvePo$', viewPo_views.approvePo, name='approvePo'),
     re_path(r'^viewPo/rejectPo$', viewPo_views.rejectPo, name='rejectPo'),
 
