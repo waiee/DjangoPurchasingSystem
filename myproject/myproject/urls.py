@@ -42,9 +42,13 @@ urlpatterns = [
     re_path(r'^additemconfirmation$', additem_views.additemconfirmation, name='additem_confirmation'),
     
     re_path(r'^viewPo/$', viewPo_views.viewPo, name='viewPo'),
+    re_path(r'^viewPo$', viewPo_views.viewPo, name='viewPo'),
+    re_path(r'^selectPo$', viewPo_views.selectPo, name='selectPo'),
+    re_path(r'^searchPo$', viewPo_views.selectPo, name='searchPo'),
     re_path(r'^viewPo/searchPo$', viewPo_views.searchPo, name='searchPo'),
     re_path(r'^viewPo/selectPo$', viewPo_views.selectPo, name='selectPo'),
     re_path(r'^backtoHome$', viewPo_views.backtoHome, name='backtoHome'),
+    re_path(r'^backtoList$', viewPo_views.backtoList, name='backtoList'),
     re_path(r'^viewPo/backtoHome$', viewPo_views.backtoHome, name='backtoHome'),
     re_path(r'^viewPo/backtoList$', viewPo_views.backtoList, name='backtoList'),
     re_path(r'^viewPo/approvePo$', viewPo_views.approvePo, name='approvePo'),
