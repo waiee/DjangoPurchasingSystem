@@ -20,7 +20,6 @@ from django.contrib.auth.views import LoginView, LogoutView
 from datetime import datetime
 from app import views as main_views
 from additem import views as additem_views
-
 from submitQuotation import views as subQuo_views
 from submitQuotation import views as quoList_views
 from submitQuotation import views as quoDetail_views
@@ -30,7 +29,6 @@ from createPurchaseOrder import views as createPurchaseOrder_views
 from viewPurchaseOrderStatus import views as viewPurchaseOrderStatus_views
 from viewPurchaseOrder import views as viewPo_views
 from arPurchaseOrder import views as arviewPo_views
-
 
 admin.autodiscover()
 
@@ -99,7 +97,8 @@ urlpatterns = [
     re_path(r'^purchaseOrderList$', viewPurchaseOrderStatus_views.purchaseOrderList, name='purchaseOrderList'),
     re_path(r'^poDetail$', viewPurchaseOrderStatus_views.poDetail, name='poDetail'),
     re_path(r'^poConfirmation$', createPurchaseOrder_views.poConfirmation, name='poConfirmation'),
-
+    re_path(r'^purchaseOrderProductID$', createPurchaseOrder_views.purchaseOrderProductID, name='purchaseOrderProductID'),
+    
     #Manager
     re_path(r'^viewPo/$', viewPo_views.viewPo, name='viewPo'),
     re_path(r'^viewPo/searchPo$', viewPo_views.searchPo, name='searchPo'),
