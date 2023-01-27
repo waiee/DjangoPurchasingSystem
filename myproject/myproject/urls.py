@@ -18,11 +18,18 @@ from django.urls import path, re_path
 import django.contrib.auth.views
 from django.contrib.auth.views import LoginView, LogoutView
 from datetime import datetime
-
 from app import views as main_views
 from additem import views as additem_views
+
+from submitQuotation import views as subQuo_views
+from submitQuotation import views as quoList_views
+from submitQuotation import views as quoDetail_views
+
+
+
 from viewPurchaseOrder import views as viewPo_views
 from arPurchaseOrder import views as arviewPo_views
+
 
 admin.autodiscover()
 
@@ -41,6 +48,17 @@ urlpatterns = [
     re_path(r'^additemform$', additem_views.additemform, name='additem_form'),
     re_path(r'^additemconfirmation$', additem_views.additemconfirmation, name='additem_confirmation'),
     
+    #Purchaser
+    re_path(r'^submitQuotation$', subQuo_views.submitQuotation, name='submit_quotation'),
+    re_path(r'^quotationConfirm$', subQuo_views.quotationConfirmation, name='quotation_confirmation'),
+    re_path(r'^addQuotationItem$', subQuo_views.addQuotationItem, name='add_quotation_item'),
+    re_path(r'^QuotationItemList$', subQuo_views.QuotationItemList, name='quotation_item_list'),
+    re_path(r'^quotationList$', quoList_views.quotationList, name='quotation_list'),
+    re_path(r'^quotationDetail$', quoDetail_views.quotationDetail, name='quotation_detail'),
+
+
+
+    #Manager
     re_path(r'^viewPo/$', viewPo_views.viewPo, name='viewPo'),
     re_path(r'^viewPo/searchPo$', viewPo_views.searchPo, name='searchPo'),
     re_path(r'^viewPo/selectPo$', viewPo_views.selectPo, name='selectPo'),
