@@ -80,7 +80,7 @@ def searchPo(request):
     else:
         return render(request, 'viewPurchaseOrder/searchPo.html',context)
 
-def backtoHome(request):
+def backtohome(request):
     """Renders the home page."""
     assert isinstance(request, HttpRequest)
     if request.user.is_authenticated:
@@ -90,7 +90,7 @@ def backtoHome(request):
             request,
             'app/menu.html',
             {
-                'title':'View Item',
+                'title':'Main Menu',
                 'year': datetime.now().year,
             }
         )

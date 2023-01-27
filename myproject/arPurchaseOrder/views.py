@@ -103,7 +103,7 @@ def arsearchPo(request):
     else:
         return render(request,'arPurchaseOrder/searchPo.html',context)
 
-def arbacktoHome(request):
+def arbacktohome(request):
     """Renders the home page."""
     assert isinstance(request, HttpRequest)
     if request.user.is_authenticated:
@@ -117,7 +117,7 @@ def arbacktoHome(request):
                 'year': datetime.now().year,
             }
         )
-def arbacktoList(request):
+def arbacktolist(request):
     """Renders the home page."""
     assert isinstance(request, HttpRequest)
     if request.user.is_authenticated:
