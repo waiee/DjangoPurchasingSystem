@@ -26,9 +26,8 @@ from submitQuotation import views as quoList_views
 from submitQuotation import views as quoDetail_views
 from viewquotation import views as viewquo_views
 from arQuotation import views as arviewquo_views
-
-
-
+from createPurchaseOrder import views as createPurchaseOrder_views
+from viewPurchaseOrderStatus import views as viewPurchaseOrderStatus_views
 from viewPurchaseOrder import views as viewPo_views
 from arPurchaseOrder import views as arviewPo_views
 
@@ -91,7 +90,14 @@ urlpatterns = [
     re_path(r'^arviewquo/arsearchquo$', arviewquo_views.arsearchquo, name='arsearchquo'),
 
     #Finance Officer
-
+    re_path(r'^createPurchaseOrder$', createPurchaseOrder_views.createPurchaseOrder, name='createPurchaseOrder'),
+    re_path(r'^quotationList$', createPurchaseOrder_views.quotationList, name='quotationList'),
+    re_path(r'^quotationDetail$', createPurchaseOrder_views.quotationDetail, name='quotationDetail'),
+    re_path(r'^purchaseOrderDetail$', createPurchaseOrder_views.purchaseOrderDetail, name='purchaseOrderDetail'),
+    re_path(r'^message$', createPurchaseOrder_views.message, name='message'),
+    re_path(r'^newPurchaseOrder$', createPurchaseOrder_views.newPurchaseOrder, name='newPurchaseOrder'),
+    re_path(r'^purchaseOrderList$', viewPurchaseOrderStatus_views.purchaseOrderList, name='purchaseOrderList'),
+    re_path(r'^poDetail$', viewPurchaseOrderStatus_views.poDetail, name='poDetail'),
 
     #Manager
     re_path(r'^viewPo/$', viewPo_views.viewPo, name='viewPo'),

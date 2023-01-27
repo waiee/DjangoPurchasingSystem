@@ -1,0 +1,22 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+<div class="formadditem" >
+    <br>
+    <hi><p><strong>Item Added!</strong></p></hi>  
+
+    <p>Purchase Order ID: {{ purchaseOrderID }}</p>
+    <p>Quantity Provided: {{ qtyProvided }}</p>
+    <p>Quantity Needed: {{ qtyNeeded }}</p>
+    <p>Total Price: {{ totalPrice }}</p>
+
+    <form class="additemsubmission margintop" action="additemdetails" method="POST">
+        <div class="margintop">
+            <a class="btn btn-danger btn-square buttonsize" href="/menu">Cancel</a>
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}

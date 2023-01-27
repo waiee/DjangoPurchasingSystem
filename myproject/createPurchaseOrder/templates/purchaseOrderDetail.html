@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="PurchaseOrderDetail.css"/> -->
+    <title>Purchase Order Details</title>
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            font-family: arial;
+        }
+        
+        body {
+            background-color: #EEEEEE;   
+        }
+
+        table, th,td {
+            border:none;
+            border-collapse: collapse;
+            border-left: 1px solid white;
+            border-right: 1px solid white;
+            text-align: center;
+            padding:10px;
+        } 
+
+        th {
+            background-color: #00ADB5;
+            color: white;
+            padding:15px;
+        }
+
+        tr{
+            border:1px solid;
+            border-color: white;
+            background-color: #393E46;
+            color: white;
+        }
+
+        tr > td {
+            min-width: 220px;
+            /* border: 1px solid black; */
+        }
+
+        tr > td:first-child {
+            min-width: 220px;
+        }
+        
+        button {
+			color: #ffffff;
+			font-size: 19px;
+			border: 1px solid #ffffff;
+			border-radius: 10px;
+			padding: 15px 50px;
+			cursor: pointer;
+		}
+		button:hover {
+			color: #000000;
+			background-color: #EEEEEE;
+        }
+        
+
+
+
+    </style>
+</head>
+
+    
+   <center>
+    <body>
+       
+          
+          </div>
+
+          <br><br><br><br>
+            <legend style="padding: 10px;text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);font-weight: 600;font-style: normal;font-family: Arial;margin: 0px;font-size: 50px;">
+                Purchase Order #101</legend>
+            <br><br>
+            <table>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Name</th>
+                    <th>Price Per Unit (RM)</th>
+                    <th>Quantity Provided</th>
+                    <th>Quantity Needed</th>
+                    <th>Total Price</th>
+                </tr>
+                {% for pode in item %}
+                <tr>
+                    <td>{{pode.productID}}</td>
+                    <td>{{pode.productName}}</td>
+                    <td>{{pode.productPriceperUnit}}</td>
+                    <td>{{pode.qtyProvided}}</td>
+                    <td>{{pode.qtyNeeded}}</td>
+                    <td>RM{{totalPrice}}</td>
+                </tr>
+                {% endfor %}
+            </table><br><br><br><br>
+            <table>
+                <tr>
+                    <th>Staff ID</th>
+                    <th>Vendor ID</th>
+                    <th>Validity Date</th>
+                    <th>Status</th>
+                    <th>Final Total Price (RM)</th>
+                </tr>
+                <tr>
+                    <td>{{staffID}}</td>
+                    <td>{{vendorID}}</td>
+                    <td>{{validityDate}}</td>
+                    <td>{{poStatus}}</td>
+                    <td>{{totalPrice}}</td>
+                </tr>
+            </table>
+        </div><br><br><br>
+     <div class="center">
+      <button type = "button" class="button" 
+      style="width:300px;height:50px;text-align:center;background-color: #8F3F3F;">
+      Back
+  </button>
+  <button type = "button" class="button" 
+  style="width:300px;height:50px;text-align:center;background-color: #3E9C4D;">
+      Edit
+  </button>
+</div><br><br>
+    <button type = "button" class="button"
+    style="width:300px;height:50px;text-align:center;background-color: #00ADB5">
+    <a href="{% url 'menu' %}"> Back to main page </a>
+</button>
+</div>
+    </body>
+</center>
+</html>
