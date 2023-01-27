@@ -98,6 +98,7 @@ urlpatterns = [
     re_path(r'^newPurchaseOrder$', createPurchaseOrder_views.newPurchaseOrder, name='newPurchaseOrder'),
     re_path(r'^purchaseOrderList$', viewPurchaseOrderStatus_views.purchaseOrderList, name='purchaseOrderList'),
     re_path(r'^poDetail$', viewPurchaseOrderStatus_views.poDetail, name='poDetail'),
+    re_path(r'^poConfirmation$', createPurchaseOrder_views.poConfirmation, name='poConfirmation'),
 
     #Manager
     re_path(r'^viewPo/$', viewPo_views.viewPo, name='viewPo'),
