@@ -33,7 +33,7 @@ from arPurchaseOrder import views as arviewPo_views
 admin.autodiscover()
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin', admin.site.urls),
     re_path(r'^$', main_views.home, name='home'),
     re_path(r'^contact$', main_views.contact, name='contact'),
     re_path(r'^about$', main_views.about, name='about'),
