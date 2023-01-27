@@ -56,7 +56,7 @@
 
     <!-- <br /> -->
     <table>
-    {% if is_employee %}
+    {% elif is_employee %}
         <tr><td>
     <form class="margintop" action='additemform' method='GET'>
         <button type="submit" class="btn btn-info">Add Item</button><br />
@@ -71,7 +71,7 @@
 
     <!-- <br /> -->
     <table>
-    {% if is_financeofficer %}
+    {% elif is_financeofficer %}
         <tr><td>
     <form class="margintop" action='additemform' method='GET'>
         <button type="submit" class="btn btn-info">Add Item</button><br />
@@ -105,6 +105,6 @@
     {% endif %}            
     </table>
 </div>
+</body>
 
 {% endblock %}
-</body>
